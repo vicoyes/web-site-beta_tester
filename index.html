@@ -631,8 +631,12 @@
 <!-- ═══════════════════════════════════════════
      POS / VENTAS Y PEDIDOS — DEEP DIVE
 ═══════════════════════════════════════════ -->
-<section id="pos-ventas" class="py-24 bg-white border-b border-border">
-  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
+<section id="pos-ventas" class="py-24 border-b border-border overflow-hidden relative" style="background: linear-gradient(135deg, #f9f9ff 0%, #fff1f0 50%, #f0f3ff 100%);">
+  <!-- Decorative background blobs -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-0 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-primary/4 rounded-full blur-3xl -z-0 pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
     <!-- Column 1: Info (span-5) -->
     <div class="lg:col-span-5 space-y-6">
@@ -640,7 +644,7 @@
         <span class="ms ms-filled text-[14px]">sell</span>
         Módulo POS
       </div>
-      
+
       <h2 class="text-3xl sm:text-4xl font-extrabold text-on-surface leading-[1.15]">
         POS / Ventas y pedidos
       </h2>
@@ -654,8 +658,8 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-xl border border-border p-4.5 flex items-start gap-3 shadow-sm">
-        <span class="ms ms-filled text-primary text-[20px] mt-0.5">verified</span>
+      <div class="bg-white/80 backdrop-blur-sm rounded-xl border border-primary-light/50 px-4 py-3.5 flex items-start gap-3 shadow-sm">
+        <span class="ms ms-filled text-primary text-[20px] mt-0.5 flex-shrink-0">verified</span>
         <p class="text-sm text-on-surface font-semibold leading-normal">
           Ideal para comercios que necesitan vender rápido, con más orden y mejor control.
         </p>
@@ -682,7 +686,7 @@
           </div>
           <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
             <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
-            Calcular cambio
+            Calcular cambio en caja
           </div>
           <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
             <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
@@ -704,21 +708,73 @@
       </div>
     </div>
 
-    <!-- Column 2: Mobile Mockup (span-7) -->
-    <div class="lg:col-span-7 flex justify-center">
-      <div class="relative w-[280px] sm:w-[300px] h-[580px] sm:h-[620px] bg-slate-900 rounded-[50px] p-3 shadow-card-hover border-4 border-slate-800 ring-8 ring-slate-950/10 flex-shrink-0 animate-float">
-        <!-- Speaker / Camera Notch -->
-        <div class="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-5 bg-slate-950 rounded-full z-30 flex items-center justify-center">
-          <div class="w-12 h-1 bg-slate-800 rounded-full"></div>
+
+    <!-- Column 2: Phone Mockup (span-7) -->
+    <div class="lg:col-span-7 flex justify-center items-center">
+      <div class="relative flex-shrink-0 animate-float">
+
+        <!-- Floating badge: Venta completada -->
+        <div class="absolute -left-8 top-16 z-40 bg-white rounded-2xl shadow-card border border-border px-3.5 py-2.5 items-center gap-2.5 hidden lg:flex">
+          <div class="w-8 h-8 rounded-xl bg-green-50 border border-green-100 flex items-center justify-center flex-shrink-0">
+            <span class="ms ms-filled text-green-600 text-[16px]">check_circle</span>
+          </div>
+          <div>
+            <p class="text-[10px] font-bold text-on-surface leading-none">Venta completada</p>
+            <p class="text-[9px] text-on-muted mt-0.5">Recibo generado</p>
+          </div>
         </div>
-        
-        <!-- Screen container -->
-        <div class="w-full h-full bg-white rounded-[40px] overflow-hidden relative border border-slate-950/20 z-10">
-          <img src="img/reportes-mobile.png" alt="Pantalla de Inventaria en móvil" class="w-full h-full object-cover block" />
+
+        <!-- Floating badge: Ingresos del día -->
+        <div class="absolute -right-8 bottom-20 z-40 bg-white rounded-2xl shadow-card border border-border px-3.5 py-2.5 hidden lg:block">
+          <p class="text-[9px] font-bold text-on-muted uppercase tracking-wider">Ingresos hoy</p>
+          <p class="text-base font-extrabold text-on-surface mt-0.5">$29.343</p>
+          <p class="text-[9px] text-green-600 font-bold flex items-center gap-0.5 mt-0.5">
+            <span class="ms text-[10px]">trending_up</span> +12% vs ayer
+          </p>
         </div>
-        
-        <!-- Subtle shadow/sheen overlay inside notch area -->
-        <div class="absolute inset-x-6 top-3 h-6 bg-gradient-to-b from-slate-900 to-transparent pointer-events-none z-20 opacity-40"></div>
+
+        <!-- Phone body wrapper -->
+        <div class="relative w-[248px] sm:w-[268px]" style="height:540px;">
+
+          <!-- Physical buttons left (volume) -->
+          <div class="absolute -left-[5px] top-24 w-[4px] h-7 bg-slate-700 rounded-l-sm"></div>
+          <div class="absolute -left-[5px] top-36 w-[4px] h-7 bg-slate-700 rounded-l-sm"></div>
+          <!-- Physical button right (power) -->
+          <div class="absolute -right-[5px] top-28 w-[4px] h-11 bg-slate-700 rounded-r-sm"></div>
+
+          <!-- Outer phone shell -->
+          <div class="absolute inset-0 rounded-[42px] bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 shadow-[0_28px_56px_rgba(0,0,0,0.4),0_6px_12px_rgba(0,0,0,0.25)]"></div>
+          <!-- Metallic rim highlight -->
+          <div class="absolute inset-0 rounded-[42px] ring-[2.5px] ring-inset ring-white/10 pointer-events-none"></div>
+
+          <!-- Inner bezel -->
+          <div class="absolute inset-[5px] rounded-[38px] overflow-hidden bg-slate-950">
+
+            <!-- Screen image -->
+            <img
+              src="img/reportes-mobile.png"
+              alt="Inventaria app — pantalla de reportes"
+              class="absolute inset-0 w-full h-full object-cover object-top block"
+            />
+
+            <!-- Dynamic Island (pill punch-hole over the screen) -->
+            <div class="absolute top-2 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center"
+                 style="width:90px; height:28px; background:#0a0a0a; border-radius:999px;">
+              <!-- Front camera dot -->
+              <div style="width:10px;height:10px;border-radius:50%;background:#1e1e1e;margin-left:18px;">
+                <div style="width:5px;height:5px;border-radius:50%;background:#2a2a2a;margin:2.5px auto;"></div>
+              </div>
+            </div>
+
+            <!-- Thin status-bar tint so Island blends cleanly -->
+            <div class="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-black/15 to-transparent pointer-events-none z-20"></div>
+
+          </div>
+
+          <!-- Glass glare -->
+          <div class="absolute inset-[5px] rounded-[38px] bg-gradient-to-br from-white/[0.07] via-transparent to-transparent pointer-events-none z-40"></div>
+
+        </div>
       </div>
     </div>
 
