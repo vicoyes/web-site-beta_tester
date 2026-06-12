@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Acuerdo de Pruebas Beta de Inventaria. Conoce tus beneficios exclusivos como usuario fundador y tus compromisos durante el programa." />
+  <title>Acuerdo de Pruebas Beta | Inventaria Beta</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:   '#bb0023',
+            'primary-dark': '#930019',
+            'primary-light': '#ffdad8',
+            'primary-subtle': '#fff1f0',
+            surface:   '#f9f9ff',
+            'surface-low':  '#f0f3ff',
+            'surface-mid':  '#e8eeff',
+            'surface-high': '#dee8ff',
+            'on-surface':   '#111c2d',
+            'on-muted':     '#4a5568',
+            border:    '#e2e8f0',
+            'border-strong': '#cbd5e1',
+            dark:      '#1e2d3d',
+            'dark-muted': '#334155',
+          },
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+          boxShadow: {
+            card: '0 1px 4px rgba(17,28,45,0.06), 0 4px 16px rgba(17,28,45,0.04)',
+            'card-hover': '0 4px 12px rgba(17,28,45,0.08), 0 12px 32px rgba(17,28,45,0.06)',
+            'primary': '0 4px 16px rgba(187,0,35,0.25)',
+          },
+          maxWidth: { content: '720px' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .ms { font-family: 'Material Symbols Outlined'; font-weight: 400; font-style: normal; line-height: 1; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .ms-filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f9f9ff; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+
+<!-- NAVIGATION -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
+    <a href="index.html" class="flex items-center gap-2 font-bold text-lg text-on-surface tracking-tight">
+      <span class="ms ms-filled text-primary text-[24px]">inventory_2</span>
+      Inventaria
+      <span class="text-[10px] font-bold uppercase tracking-widest bg-primary-light text-primary-dark px-2 py-0.5 rounded-full">Beta</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-on-muted">
+      <a href="index.html#caos-control" class="hover:text-primary transition-colors">Caos vs. Control</a>
+      <a href="index.html#caracteristicas" class="hover:text-primary transition-colors">Características</a>
+      <a href="index.html#funciones" class="hover:text-primary transition-colors">Funciones</a>
+      <a href="index.html#faq" class="hover:text-primary transition-colors">FAQ</a>
+    </nav>
+    <a href="index.html#join"
+       class="hidden sm:inline-flex items-center gap-1.5 bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-primary-dark transition-colors shadow-primary">
+      Solicitar acceso
+    </a>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="relative pt-32 pb-24 overflow-hidden">
+  <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 70% 60% at 70% 20%, rgba(255,218,216,0.2) 0%, transparent 70%);"></div>
+
+  <div class="max-w-3xl mx-auto px-6">
+    <!-- Breadcrumb / Back Link -->
+    <div class="mb-10">
+      <a href="index.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors group">
+        <span class="ms transition-transform group-hover:-translate-x-1 text-[20px]">arrow_back</span>
+        Volver al inicio
+      </a>
+    </div>
+
+    <!-- Header Section -->
+    <div class="mb-12 border-b border-border pb-10">
+      <div class="inline-flex items-center gap-2 bg-primary-subtle border border-primary-light text-primary-dark text-xs font-semibold px-3 py-1 rounded-full mb-4">
+        <span class="ms ms-filled text-[14px]">handshake</span>
+        Acuerdo de Pruebas Beta
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-on-surface mb-4">
+        Acuerdo de Pruebas Beta
+      </h1>
+      <p class="text-sm text-on-muted">
+        Última actualización: 12 de junio de 2026
+      </p>
+    </div>
+
+    <!-- Prose Area -->
+    <div class="space-y-8 text-on-muted leading-relaxed">
+      <p class="text-lg text-on-surface font-medium leading-relaxed">
+        El presente documento establece las bases y condiciones específicas para tu participación en el Programa de Pruebas Beta de Inventaria. Este es un acuerdo voluntario entre tú (el "Probador Beta") e Inventaria (WeaveWP) con el fin de probar, evaluar e identificar oportunidades de mejora en nuestra aplicación.
+      </p>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">volunteer_activism</span>
+          1. Acceso gratuito y carácter experimental
+        </h2>
+        <p>
+          Como participante de la beta, tendrás acceso 100% gratuito a todas las funcionalidades del software de Inventaria (incluido el Copiloto IA) durante el período que dure la etapa de desarrollo y refinamiento. Reconoces que:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>El software se encuentra en etapa experimental. Puede experimentar inestabilidad, errores de renderizado de tickets, caídas del servidor o discrepancias menores en los cálculos.</li>
+          <li>El acceso gratuito está garantizado únicamente para el uso directo en tu comercio y no puede transferirse o revenderse a terceros.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">rate_review</span>
+          2. Compromiso de retroalimentación (Feedback)
+        </h2>
+        <p>
+          La gratuidad y los beneficios exclusivos de la beta se otorgan a cambio de tu colaboración activa. Te comprometes a:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Reportar de manera oportuna a través de los canales de soporte cualquier bug o comportamiento inusual que detectes.</li>
+          <li>Compartir tus sugerencias honestas para mejorar la facilidad de uso y la estructura de la aplicación.</li>
+          <li>Responder a encuestas breves y periódicas sobre tu experiencia de uso que nuestro equipo te envíe por correo o WhatsApp.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">workspace_premium</span>
+          3. Beneficio de Usuario Fundador (Lifetime)
+        </h2>
+        <div class="bg-primary-subtle border border-primary-light p-6 rounded-xl space-y-3">
+          <h3 class="text-base font-bold text-primary-dark flex items-center gap-1.5">
+            <span class="ms text-[20px]">stars</span>
+            ¡Recompensa especial para pioneros!
+          </h3>
+          <p class="text-sm text-on-muted">
+            En agradecimiento por tu tiempo, esfuerzo y datos valiosos que nos ayudan a perfeccionar Inventaria, te garantizamos que:
+          </p>
+          <ul class="list-disc pl-6 text-sm text-on-muted space-y-1">
+            <li>Obtendrás un <strong>descuento vitalicio exclusivo (Lifetime Discount)</strong> muy significativo sobre las tarifas del plan de pago que se implemente cuando la plataforma se lance de forma oficial al mercado.</li>
+            <li>Tendrás prioridad absoluta para probar nuevas herramientas e integraciones antes que cualquier otro usuario general.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">lock</span>
+          4. Confidencialidad
+        </h2>
+        <p>
+          Entiendes que estás accediendo a tecnología en desarrollo que aún no es pública. Te comprometes a:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>No compartir capturas de pantalla, videos de funcionamiento interno o detalles del algoritmo del Copiloto IA en redes sociales o foros públicos sin el consentimiento previo por escrito de Inventaria.</li>
+          <li>Utilizar el canal de soporte privado para reportar los fallos en lugar de publicarlos abiertamente en internet.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">backup</span>
+          5. Respaldo de información
+        </h2>
+        <p>
+          Aunque nos esforzamos por proteger y mantener la integridad de tus registros comerciales en la base de datos, existe el riesgo residual de pérdida de datos debido a actualizaciones críticas del sistema. **Es tu responsabilidad exportar periódicamente tu inventario e historial de ventas** mediante los botones de exportación disponibles en tu panel para evitar cualquier inconveniente operativo en tu tienda física o virtual.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">exit_to_app</span>
+          6. Terminación del acuerdo
+        </h2>
+        <p>
+          Tanto tú como Inventaria pueden dar por terminado este acuerdo en cualquier momento. Si decides retirarte del programa beta, eliminaremos tu cuenta y tus datos asociados a tu solicitud. Inventaria se reserva el derecho de dar de baja cuentas inactivas durante la beta para liberar recursos del servidor para probadores activos.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">contact_support</span>
+          7. Soporte Técnico
+        </h2>
+        <p>
+          Para canalizar tus reportes de fallos, dudas sobre el acuerdo de beta, o solicitar asistencia con la aplicación, por favor utiliza nuestra mesa de soporte directo:
+        </p>
+        <div class="pt-2">
+          <a href="https://tickets.weavewp.com/portal?token=f73896234c0aa676546e5a410ed99a93d7df48567fa00e24d90b784d8716f26c" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white text-on-surface font-semibold text-sm px-5 py-3 rounded-lg border border-border hover:border-border-strong hover:bg-surface-low transition-colors shadow-sm">
+            <span class="ms text-primary">support_agent</span>
+            Abrir Ticket de Soporte Técnico
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-border bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2 font-bold text-base text-on-surface">
+      <span class="ms ms-filled text-primary text-[22px]">inventory_2</span>
+      Inventaria
+    </div>
+    <p class="text-sm text-on-muted text-center">© 2026 Inventaria. Programa de Beta Profesional.</p>
+    <div class="flex flex-wrap justify-center gap-5 text-sm text-on-muted">
+      <a href="privacidad.html" class="hover:text-primary transition-colors">Privacidad</a>
+      <a href="terminos.html" class="hover:text-primary transition-colors">Términos</a>
+      <a href="https://tickets.weavewp.com/portal?token=f73896234c0aa676546e5a410ed99a93d7df48567fa00e24d90b784d8716f26c" target="_blank" rel="noopener" class="hover:text-primary transition-colors">Soporte</a>
+      <a href="acuerdo-beta.html" class="hover:text-primary transition-colors font-semibold underline decoration-primary">Acuerdo Beta</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

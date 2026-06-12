@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Política de Privacidad de Inventaria Beta. Conoce cómo protegemos tus datos y los de tu negocio durante nuestra etapa de pruebas." />
+  <title>Política de Privacidad | Inventaria Beta</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:   '#bb0023',
+            'primary-dark': '#930019',
+            'primary-light': '#ffdad8',
+            'primary-subtle': '#fff1f0',
+            surface:   '#f9f9ff',
+            'surface-low':  '#f0f3ff',
+            'surface-mid':  '#e8eeff',
+            'surface-high': '#dee8ff',
+            'on-surface':   '#111c2d',
+            'on-muted':     '#4a5568',
+            border:    '#e2e8f0',
+            'border-strong': '#cbd5e1',
+            dark:      '#1e2d3d',
+            'dark-muted': '#334155',
+          },
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+          boxShadow: {
+            card: '0 1px 4px rgba(17,28,45,0.06), 0 4px 16px rgba(17,28,45,0.04)',
+            'card-hover': '0 4px 12px rgba(17,28,45,0.08), 0 12px 32px rgba(17,28,45,0.06)',
+            'primary': '0 4px 16px rgba(187,0,35,0.25)',
+          },
+          maxWidth: { content: '720px' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .ms { font-family: 'Material Symbols Outlined'; font-weight: 400; font-style: normal; line-height: 1; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .ms-filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f9f9ff; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+
+<!-- NAVIGATION -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
+    <a href="index.html" class="flex items-center gap-2 font-bold text-lg text-on-surface tracking-tight">
+      <span class="ms ms-filled text-primary text-[24px]">inventory_2</span>
+      Inventaria
+      <span class="text-[10px] font-bold uppercase tracking-widest bg-primary-light text-primary-dark px-2 py-0.5 rounded-full">Beta</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-on-muted">
+      <a href="index.html#caos-control" class="hover:text-primary transition-colors">Caos vs. Control</a>
+      <a href="index.html#caracteristicas" class="hover:text-primary transition-colors">Características</a>
+      <a href="index.html#funciones" class="hover:text-primary transition-colors">Funciones</a>
+      <a href="index.html#faq" class="hover:text-primary transition-colors">FAQ</a>
+    </nav>
+    <a href="index.html#join"
+       class="hidden sm:inline-flex items-center gap-1.5 bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-primary-dark transition-colors shadow-primary">
+      Solicitar acceso
+    </a>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="relative pt-32 pb-24 overflow-hidden">
+  <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 70% 60% at 70% 20%, rgba(255,218,216,0.2) 0%, transparent 70%);"></div>
+
+  <div class="max-w-3xl mx-auto px-6">
+    <!-- Breadcrumb / Back Link -->
+    <div class="mb-10">
+      <a href="index.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors group">
+        <span class="ms transition-transform group-hover:-translate-x-1 text-[20px]">arrow_back</span>
+        Volver al inicio
+      </a>
+    </div>
+
+    <!-- Header Section -->
+    <div class="mb-12 border-b border-border pb-10">
+      <div class="inline-flex items-center gap-2 bg-primary-subtle border border-primary-light text-primary-dark text-xs font-semibold px-3 py-1 rounded-full mb-4">
+        <span class="ms ms-filled text-[14px]">shield</span>
+        Política de Privacidad
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-on-surface mb-4">
+        Política de Privacidad
+      </h1>
+      <p class="text-sm text-on-muted">
+        Última actualización: 12 de junio de 2026
+      </p>
+    </div>
+
+    <!-- Prose Area -->
+    <div class="space-y-8 text-on-muted leading-relaxed">
+      <p class="text-lg text-on-surface font-medium leading-relaxed">
+        En Inventaria, valoramos la confianza que depositas en nosotros al usar nuestra aplicación para gestionar tu negocio. Esta Política de Privacidad explica de manera transparente cómo recopilamos, utilizamos, almacenamos y protegemos tus datos y los de tu comercio durante el Programa de Pruebas Beta.
+      </p>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">badge</span>
+          1. Información que recopilamos
+        </h2>
+        <p>
+          Para el correcto funcionamiento del software y poder brindarte asistencia personalizada, recopilamos la siguiente información:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Datos del usuario:</strong> Nombre, dirección de correo electrónico, número de teléfono (por ejemplo, para el contacto de onboarding en WhatsApp).</li>
+          <li><strong>Datos del negocio:</strong> Nombre del comercio, tipo de industria o categoría, productos, precios, costos, cantidad de existencias y transacciones registradas (ventas, pedidos pendientes o completados).</li>
+          <li><strong>Datos de tus clientes y proveedores:</strong> Nombres y datos de contacto opcionales que decidas registrar para la administración de tu negocio.</li>
+          <li><strong>Información técnica de uso:</strong> Dirección IP, tipo de dispositivo, navegador y registros de errores analíticos recopilados de forma automática.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">tune</span>
+          2. Cómo utilizamos tu información
+        </h2>
+        <p>
+          Tus datos tienen como único fin habilitar y mejorar la gestión operativa de tu negocio. Específicamente, los utilizamos para:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Proveer el servicio y las funcionalidades de registro de ventas, inventario e impresión de tickets.</li>
+          <li>Alimentar el algoritmo del <strong>Copiloto IA</strong>, para analizar los números de tu negocio y poder ofrecerte sugerencias automáticas (productos estrella, alertas de stock bajo y recomendaciones de compra).</li>
+          <li>Brindarte soporte técnico y resolver problemas de funcionamiento a través de nuestros canales oficiales.</li>
+          <li>Comunicarnos contigo para recibir retroalimentación, sugerencias de mejora e informarte sobre novedades importantes de la beta.</li>
+        </ul>
+        <div class="bg-primary-subtle border-l-4 border-primary p-4 rounded-r-lg mt-4">
+          <p class="text-sm text-primary-dark font-medium">
+            <strong>Nota importante sobre la Inteligencia Artificial:</strong> El Copiloto IA procesa tus datos localmente o a través de APIs cifradas seguras. En ningún caso tus datos comerciales se comparten públicamente ni se utilizan para entrenar modelos de IA de terceros para otros propósitos.
+          </p>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">visibility_lock</span>
+          3. Privacidad y confidencialidad en la etapa Beta
+        </h2>
+        <p>
+          Al tratarse de una versión en desarrollo activo (fase Beta), se aplican ciertas condiciones particulares:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Acceso de desarrollo:</strong> El equipo de desarrollo autorizado de Inventaria (WeaveWP) podrá tener acceso técnico a logs y registros de la base de datos únicamente con el fin de solucionar errores de software, optimizar consultas y asegurar la estabilidad de la plataforma.</li>
+          <li><strong>Confidencialidad absoluta:</strong> Bajo ninguna circunstancia venderemos, alquilaremos o distribuiremos tus datos personales o comerciales a anunciantes o empresas externas.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">security</span>
+          4. Seguridad de los datos
+        </h2>
+        <p>
+          Implementamos medidas de seguridad estándar de la industria para proteger tu información contra accesos no autorizados, pérdidas accidentales o modificaciones. Esto incluye encriptación SSL en el tránsito de datos y almacenamiento en servidores con altos estándares de seguridad y redundancia. Sin embargo, al ser una versión experimental (Beta), se recomienda no ingresar contraseñas críticas o datos extremadamente confidenciales de naturaleza bancaria.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">download</span>
+          5. Control sobre tus datos (Derechos)
+        </h2>
+        <p>
+          Eres el único dueño de tu información. En cualquier momento puedes:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Exportar tus datos:</strong> Descargar la información de tus productos, clientes e historial de ventas en formatos estándar como Excel/CSV.</li>
+          <li><strong>Eliminar tu cuenta:</strong> Solicitar la eliminación total y permanente de tu cuenta y todos los datos asociados de nuestros servidores.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">contact_support</span>
+          6. Contacto y Soporte
+        </h2>
+        <p>
+          Si tienes alguna pregunta sobre nuestra política de privacidad o deseas solicitar la eliminación de tu información, puedes abrir un ticket de soporte a través de nuestro canal oficial:
+        </p>
+        <div class="pt-2">
+          <a href="https://tickets.weavewp.com/portal?token=f73896234c0aa676546e5a410ed99a93d7df48567fa00e24d90b784d8716f26c" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white text-on-surface font-semibold text-sm px-5 py-3 rounded-lg border border-border hover:border-border-strong hover:bg-surface-low transition-colors shadow-sm">
+            <span class="ms text-primary">support_agent</span>
+            Abrir Ticket de Soporte Técnico
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-border bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2 font-bold text-base text-on-surface">
+      <span class="ms ms-filled text-primary text-[22px]">inventory_2</span>
+      Inventaria
+    </div>
+    <p class="text-sm text-on-muted text-center">© 2026 Inventaria. Programa de Beta Profesional.</p>
+    <div class="flex flex-wrap justify-center gap-5 text-sm text-on-muted">
+      <a href="privacidad.html" class="hover:text-primary transition-colors">Privacidad</a>
+      <a href="terminos.html" class="hover:text-primary transition-colors">Términos</a>
+      <a href="https://tickets.weavewp.com/portal?token=f73896234c0aa676546e5a410ed99a93d7df48567fa00e24d90b784d8716f26c" target="_blank" rel="noopener" class="hover:text-primary transition-colors">Soporte</a>
+      <a href="acuerdo-beta.html" class="hover:text-primary transition-colors font-semibold underline decoration-primary">Acuerdo Beta</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

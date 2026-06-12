@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Términos del Servicio de Inventaria Beta. Conoce las condiciones de uso de nuestra plataforma y software de gestión comercial." />
+  <title>Términos del Servicio | Inventaria Beta</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:   '#bb0023',
+            'primary-dark': '#930019',
+            'primary-light': '#ffdad8',
+            'primary-subtle': '#fff1f0',
+            surface:   '#f9f9ff',
+            'surface-low':  '#f0f3ff',
+            'surface-mid':  '#e8eeff',
+            'surface-high': '#dee8ff',
+            'on-surface':   '#111c2d',
+            'on-muted':     '#4a5568',
+            border:    '#e2e8f0',
+            'border-strong': '#cbd5e1',
+            dark:      '#1e2d3d',
+            'dark-muted': '#334155',
+          },
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+          boxShadow: {
+            card: '0 1px 4px rgba(17,28,45,0.06), 0 4px 16px rgba(17,28,45,0.04)',
+            'card-hover': '0 4px 12px rgba(17,28,45,0.08), 0 12px 32px rgba(17,28,45,0.06)',
+            'primary': '0 4px 16px rgba(187,0,35,0.25)',
+          },
+          maxWidth: { content: '720px' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .ms { font-family: 'Material Symbols Outlined'; font-weight: 400; font-style: normal; line-height: 1; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .ms-filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f9f9ff; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+
+<!-- NAVIGATION -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
+    <a href="index.html" class="flex items-center gap-2 font-bold text-lg text-on-surface tracking-tight">
+      <span class="ms ms-filled text-primary text-[24px]">inventory_2</span>
+      Inventaria
+      <span class="text-[10px] font-bold uppercase tracking-widest bg-primary-light text-primary-dark px-2 py-0.5 rounded-full">Beta</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-on-muted">
+      <a href="index.html#caos-control" class="hover:text-primary transition-colors">Caos vs. Control</a>
+      <a href="index.html#caracteristicas" class="hover:text-primary transition-colors">Características</a>
+      <a href="index.html#funciones" class="hover:text-primary transition-colors">Funciones</a>
+      <a href="index.html#faq" class="hover:text-primary transition-colors">FAQ</a>
+    </nav>
+    <a href="index.html#join"
+       class="hidden sm:inline-flex items-center gap-1.5 bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-primary-dark transition-colors shadow-primary">
+      Solicitar acceso
+    </a>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="relative pt-32 pb-24 overflow-hidden">
+  <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 70% 60% at 70% 20%, rgba(255,218,216,0.2) 0%, transparent 70%);"></div>
+
+  <div class="max-w-3xl mx-auto px-6">
+    <!-- Breadcrumb / Back Link -->
+    <div class="mb-10">
+      <a href="index.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors group">
+        <span class="ms transition-transform group-hover:-translate-x-1 text-[20px]">arrow_back</span>
+        Volver al inicio
+      </a>
+    </div>
+
+    <!-- Header Section -->
+    <div class="mb-12 border-b border-border pb-10">
+      <div class="inline-flex items-center gap-2 bg-primary-subtle border border-primary-light text-primary-dark text-xs font-semibold px-3 py-1 rounded-full mb-4">
+        <span class="ms ms-filled text-[14px]">gavel</span>
+        Términos de Uso
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-on-surface mb-4">
+        Términos del Servicio
+      </h1>
+      <p class="text-sm text-on-muted">
+        Última actualización: 12 de junio de 2026
+      </p>
+    </div>
+
+    <!-- Prose Area -->
+    <div class="space-y-8 text-on-muted leading-relaxed">
+      <p class="text-lg text-on-surface font-medium leading-relaxed">
+        Bienvenido a Inventaria. Los siguientes Términos del Servicio regulan el acceso y uso de nuestro sitio web, aplicaciones y servicios relacionados. Al solicitar acceso o utilizar nuestra plataforma durante la fase Beta, aceptas cumplir con estas condiciones.
+      </p>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">assignment_turned_in</span>
+          1. Aceptación y elegibilidad
+        </h2>
+        <p>
+          Para participar en el programa de pruebas beta de Inventaria, debes cumplir con los siguientes requisitos:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Ser una persona física o moral con capacidad legal para contratar.</li>
+          <li>Operar o estar en proceso de lanzar un comercio, tienda minorista o negocio real (Inventaria está diseñado para su uso en operaciones comerciales genuinas).</li>
+          <li>Aceptar los presentes Términos, así como nuestra Política de Privacidad y el Acuerdo de Pruebas Beta.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">account_box</span>
+          2. Cuentas de usuario y seguridad
+        </h2>
+        <p>
+          Al ser admitido en el programa, se te proporcionará una cuenta de acceso. Eres responsable de:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Mantener la confidencialidad de tus credenciales de acceso (usuario y contraseña).</li>
+          <li>Toda la actividad que ocurra bajo tu cuenta.</li>
+          <li>Notificar de inmediato a nuestro equipo de soporte sobre cualquier uso no autorizado o brecha de seguridad sospechada.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">block</span>
+          3. Usos prohibidos
+        </h2>
+        <p>
+          Te comprometes a utilizar Inventaria únicamente para fines lícitos y operativos de tu negocio. Queda estrictamente prohibido:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Utilizar la plataforma para registrar transacciones ilegales, fraudulentas o de productos prohibidos por la ley.</li>
+          <li>Intentar descifrar, descompilar, realizar ingeniería inversa o copiar el código fuente, la interfaz o los algoritmos de Inventaria (incluido el Copiloto IA).</li>
+          <li>Utilizar herramientas automáticas (bots, scrapers) para extraer información del sitio web o de la aplicación sin autorización.</li>
+          <li>Crear cuentas ficticias con el único propósito de probar el sistema de forma destructiva o sobrecargar nuestros servidores.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">copyright</span>
+          4. Propiedad intelectual
+        </h2>
+        <p>
+          Todos los derechos de propiedad intelectual sobre el software, diseño de interfaz, marcas, logotipos, textos, gráficos y tecnología subyacente (incluido el motor del Copiloto IA) son propiedad exclusiva de Inventaria y sus licenciantes (WeaveWP). La participación en la Beta no te otorga ningún derecho de propiedad, licencia de comercialización ni derechos de autor sobre el software.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">report_problem</span>
+          5. Exclusión de garantías y limitación de responsabilidad
+        </h2>
+        <div class="bg-primary-subtle border-l-4 border-primary p-4 rounded-r-lg">
+          <p class="text-sm text-primary-dark font-medium mb-2">
+            <strong>ADVERTENCIA DE SOFTWARE BETA:</strong>
+          </p>
+          <p class="text-sm text-on-muted">
+            Inventaria se encuentra actualmente en fase de pruebas (versión Beta). Esto significa que el software puede contener errores, bugs o experimentar interrupciones temporales del servicio.
+          </p>
+        </div>
+        <p>
+          El servicio se proporciona <strong>"tal cual"</strong> y <strong>"según disponibilidad"</strong>, sin garantías de ningún tipo, explícitas o implícitas. Inventaria no se hace responsable por:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Pérdida de datos comerciales o historial de ventas (te sugerimos realizar exportaciones de tus datos a Excel/CSV con frecuencia).</li>
+          <li>Pérdidas financieras o lucro cesante derivados de fallas temporales en la aplicación.</li>
+          <li>Incompatibilidades de hardware con impresoras de tickets específicas u otros periféricos de tu tienda.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">edit_note</span>
+          6. Modificación de los términos y del servicio
+        </h2>
+        <p>
+          Nos reservamos el derecho de modificar o suspender temporal o permanentemente el servicio (o cualquier parte del mismo) con o sin previo aviso en cualquier momento, especialmente durante este período beta. Asimismo, podemos actualizar estos términos periódicamente. Te notificaremos cualquier cambio relevante a través de tu correo electrónico registrado.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+          <span class="ms text-primary text-[20px]">contact_support</span>
+          7. Soporte y Consultas
+        </h2>
+        <p>
+          Para cualquier duda respecto a estos Términos o para reportar incidentes en el uso del servicio, puedes canalizar tus requerimientos mediante el portal de tickets:
+        </p>
+        <div class="pt-2">
+          <a href="https://tickets.weavewp.com/portal?token=f73896234c0aa676546e5a410ed99a93d7df48567fa00e24d90b784d8716f26c" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white text-on-surface font-semibold text-sm px-5 py-3 rounded-lg border border-border hover:border-border-strong hover:bg-surface-low transition-colors shadow-sm">
+            <span class="ms text-primary">support_agent</span>
+            Abrir Ticket de Soporte Técnico
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-border bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2 font-bold text-base text-on-surface">
+      <span class="ms ms-filled text-primary text-[22px]">inventory_2</span>
+      Inventaria
+    </div>
+    <p class="text-sm text-on-muted text-center">© 2026 Inventaria. Programa de Beta Profesional.</p>
+    <div class="flex flex-wrap justify-center gap-5 text-sm text-on-muted">
+      <a href="privacidad.html" class="hover:text-primary transition-colors">Privacidad</a>
+      <a href="terminos.html" class="hover:text-primary transition-colors">Términos</a>
+      <a href="https://tickets.weavewp.com/portal?token=f73896234c0aa676546e5a410ed99a93d7df48567fa00e24d90b784d8716f26c" target="_blank" rel="noopener" class="hover:text-primary transition-colors">Soporte</a>
+      <a href="acuerdo-beta.html" class="hover:text-primary transition-colors font-semibold underline decoration-primary">Acuerdo Beta</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
