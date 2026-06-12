@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>BizCore Beta | El Futuro de la Gestión Empresarial</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#e8eeff",
+                        "on-tertiary-container": "#fbfcff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#454749",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d9e3fb",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "on-secondary-container": "#636467",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#bf0024",
+                        "on-secondary-fixed": "#1a1c1e",
+                        "outline": "#916f6d",
+                        "tertiary-container": "#727578",
+                        "primary": "#bb0023",
+                        "primary-fixed": "#ffdad8",
+                        "secondary-container": "#e2e2e5",
+                        "surface-bright": "#f9f9ff",
+                        "secondary": "#5d5e61",
+                        "on-primary-fixed-variant": "#930019",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#5c3f3e",
+                        "primary-container": "#e22336",
+                        "surface-dim": "#d0daf2",
+                        "on-background": "#111c2d",
+                        "secondary-fixed": "#e2e2e5",
+                        "background": "#f9f9ff",
+                        "surface-container-low": "#f0f3ff",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "on-surface": "#111c2d",
+                        "inverse-primary": "#ffb3b0",
+                        "on-primary-container": "#fffbff",
+                        "on-primary-fixed": "#410006",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#d9e3fb",
+                        "inverse-surface": "#273143",
+                        "tertiary": "#595c5f",
+                        "surface-container-high": "#dfe8ff",
+                        "secondary-fixed-dim": "#c6c6c9",
+                        "outline-variant": "#e6bdba",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "inverse-on-surface": "#ecf0ff",
+                        "tertiary-fixed": "#e0e3e6",
+                        "surface": "#f9f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .beta-progress-bar {
+            background: linear-gradient(90deg, #bb0023 0%, #e22336 100%);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-surface-container-lowest shadow-sm">
+        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+            <div class="text-headline-md font-extrabold text-primary flex items-center gap-2">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+                BizCore Beta
+            </div>
+            <div class="hidden md:flex items-center gap-8 font-body text-body-md">
+                <a class="text-on-surface-variant hover:text-primary transition-colors" href="#why">Benefits</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors" href="#how">Process</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors" href="#faq">FAQ</a>
+            </div>
+            <a class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-lg font-bold transition-all active:scale-95 duration-150 shadow-md"
+                href="#join">
+                Join Beta
+            </a>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+        <div class="absolute top-0 right-0 -z-10 w-1/2 h-full opacity-10">
+
+        </div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full text-label-md font-bold uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-[18px]">verified</span>
+                    Fase de acceso temprano
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-on-background leading-tight">
+                    Sé parte del <span class="text-primary">futuro</span> de la gestión empresarial
+                </h1>
+                <p class="text-xl text-on-surface-variant leading-relaxed max-w-lg">
+                    Únete a nuestro programa beta exclusivo y optimiza tu negocio gratis mientras nos ayudas a construir
+                    la herramienta definitiva.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a class="inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-container transition-all shadow-xl hover:shadow-primary/20"
+                        href="#join">
+                        Unirme a la Beta Gratis
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <div class="flex items-center gap-3 px-4">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-surface-dim"></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high"></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-primary-fixed"></div>
+                        </div>
+                        <span class="text-label-md text-on-surface-variant font-semibold">+300 empresas
+                            interesadas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative floating-element">
+                <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-outline-variant/30">
+                    <img alt="BizCore Dashboard Preview" class="w-full"
+                        data-alt="A sophisticated business dashboard interface shown on a high-resolution professional monitor. The UI features clean white cards with vibrant red data visualizations, minimalist charts, and streamlined navigation panels. Soft light-mode lighting fills the modern workspace, emphasizing a clean, productive atmosphere with high-contrast text and sleek geometric elements. The overall mood is focused, efficient, and technologically superior, reflecting a premium business management software experience."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbFhZ1yViKEjCDPf0LRnQd8lgdvwJpGNVkpUSW4PSkhJC8OTW0vUKcKa9UQZFuCjL-_tz86RrCgaQTOFlNMylD6ihST_NdJazmFiLM7H3FfcYEoDSPDPo_DT9kYPRih3FmUrIFLcPAcfKr_S2th-5tNfNrMgQkpi7TuFsLSgbaaob94FKZl8EW2TLVSBIoYGTQUh4A7XDd0t8iZ-JHEDQgahJe1BAu0-VuD2ujUKGF0_h_vGQ028uwU-2bPkB-j4Ha3HHKBoguLcM" />
+                </div>
+                <!-- Decorative elements -->
+                <div
+                    class="absolute -top-6 -right-6 w-24 h-24 bg-surface-container-highest rounded-full blur-3xl opacity-50">
+                </div>
+                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Beta Section -->
+    <section class="py-24 bg-surface-container-low" id="why">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-3xl lg:text-4xl font-bold text-on-background">¿Por qué unirse ahora?</h2>
+                <p class="text-on-surface-variant max-w-2xl mx-auto">Beneficios exclusivos diseñados para nuestros
+                    pioneros tecnológicos.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div
+                    class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all group">
+                    <div
+                        class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl"
+                            style="font-variation-settings: 'FILL' 1;">card_membership</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Acceso Gratuito de por Vida</h3>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Los usuarios beta seleccionados mantendrán su plan premium sin costo alguno, incluso después del
+                        lanzamiento oficial.
+                    </p>
+                </div>
+                <!-- Benefit 2 -->
+                <div
+                    class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all group">
+                    <div
+                        class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl"
+                            style="font-variation-settings: 'FILL' 1;">architecture</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Influencia Directa</h3>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Tus sugerencias se convertirán en funcionalidades reales. Ayúdanos a moldear la herramienta que
+                        tu negocio necesita.
+                    </p>
+                </div>
+                <!-- Benefit 3 -->
+                <div
+                    class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all group">
+                    <div
+                        class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl"
+                            style="font-variation-settings: 'FILL' 1;">support_agent</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Soporte Prioritario</h3>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        Acceso directo a nuestro equipo de desarrollo para resolver dudas y optimizar tu flujo de
+                        trabajo de forma personalizada.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Scarcity / Progress Section -->
+    <section class="py-12 bg-primary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-on-primary">
+                <div class="space-y-2 text-center md:text-left">
+                    <h3 class="text-2xl font-bold italic">¡Corre! Quedan pocos lugares</h3>
+                    <p class="opacity-90 font-medium">Solo 50 cupos disponibles para esta fase beta exclusiva.</p>
+                </div>
+                <div
+                    class="w-full max-w-md bg-on-primary/20 rounded-full h-8 relative overflow-hidden flex items-center px-1">
+                    <div class="bg-white h-6 rounded-full transition-all duration-1000 ease-out flex items-center justify-end pr-2"
+                        style="width: 64%;">
+                        <span class="text-primary font-bold text-[10px]">64%</span>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <span class="text-white text-xs font-bold tracking-widest">32 / 50 CUPOS COMPLETADOS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How it Works -->
+    <section class="py-24" id="how">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-12">
+                    <h2 class="text-4xl font-extrabold text-on-background">Tres pasos para el éxito</h2>
+                    <div class="space-y-10">
+                        <div class="flex gap-6">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xl">
+                                1</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Regístrate</h4>
+                                <p class="text-on-surface-variant">Completa el formulario de aplicación en menos de 2
+                                    minutos. Revisamos cada perfil manualmente.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xl">
+                                2</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Prueba la herramienta</h4>
+                                <p class="text-on-surface-variant">Obtén acceso total a todos los módulos y comienza a
+                                    centralizar tu información de negocio.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xl">
+                                3</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Danos tu feedback</h4>
+                                <p class="text-on-surface-variant">Comparte tus impresiones y reporta errores. Tu
+                                    opinión es la piedra angular de nuestro desarrollo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-container rounded-3xl p-8 relative overflow-hidden min-h-[400px] flex items-center justify-center">
+
+                    <div class="relative z-10 glass-card p-8 rounded-2xl max-w-sm text-center shadow-xl">
+                        <span class="material-symbols-outlined text-5xl text-primary mb-4">rate_review</span>
+                        <p class="text-on-surface italic font-medium">"El feedback de nuestros usuarios beta nos ha
+                            permitido acelerar el lanzamiento en un 40%."</p>
+                        <p class="mt-4 text-label-md font-bold text-primary">— Equipo de Producto BizCore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="py-24 bg-surface-container-low" id="faq">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Preguntas Frecuentes</h2>
+            <div class="space-y-4">
+                <details
+                    class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 open:ring-1 open:ring-primary transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer list-none font-bold text-lg">
+                        ¿Cuánto dura la fase beta?
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-on-surface-variant leading-relaxed">
+                        Estimamos una duración de 3 a 6 meses. Sin embargo, como usuario beta, tendrás acceso anticipado
+                        a todas las actualizaciones antes que el mercado general.
+                    </p>
+                </details>
+                <details
+                    class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 open:ring-1 open:ring-primary transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer list-none font-bold text-lg">
+                        ¿Qué pasa con mis datos?
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-on-surface-variant leading-relaxed">
+                        La privacidad es nuestra prioridad. Tus datos están encriptados bajo estándares bancarios
+                        (AES-256) y nunca serán compartidos con terceros. Al finalizar la beta, podrás exportar toda tu
+                        información.
+                    </p>
+                </details>
+                <details
+                    class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 open:ring-1 open:ring-primary transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer list-none font-bold text-lg">
+                        ¿Realmente es gratis?
+                        <span
+                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-on-surface-variant leading-relaxed">
+                        Sí. Para los 50 pioneros seleccionados, el acceso será gratuito de por vida como agradecimiento
+                        por su contribución crítica en las etapas iniciales de BizCore.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- Final CTA Section -->
+    <section class="py-24" id="join">
+        <div class="max-w-5xl mx-auto px-6">
+            <div
+                class="bg-inverse-surface text-inverse-on-surface rounded-[2rem] p-8 md:p-16 text-center space-y-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+
+                </div>
+                <h2 class="text-3xl md:text-5xl font-extrabold leading-tight relative z-10">
+                    No pierdas tu lugar en la fase beta
+                </h2>
+                <p class="text-xl opacity-80 max-w-2xl mx-auto relative z-10">
+                    Estamos buscando mentes inquietas y negocios con visión de futuro. El proceso de selección cierra
+                    pronto.
+                </p>
+                <div class="flex flex-col items-center gap-6 relative z-10">
+                    <form class="w-full max-w-md flex flex-col sm:flex-row gap-3">
+                        <input
+                            class="flex-grow px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none"
+                            placeholder="Tu correo electrónico empresarial" type="email" />
+                        <button
+                            class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold hover:bg-primary-container transition-all shadow-lg active:scale-95"
+                            type="submit">
+                            Aplicar Ahora
+                        </button>
+                    </form>
+                    <p class="text-label-md opacity-60">Al aplicar, aceptas nuestro Beta Agreement y Política de
+                        Privacidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-surface-container-high text-on-surface-variant">
+        <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-8 w-full max-w-7xl mx-auto">
+            <div class="text-headline-md font-bold text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary"
+                    style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+                BizCore
+            </div>
+            <p class="font-body text-label-md text-center md:text-left">
+                © 2024 BizCore Management. Professional Beta Program.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6 font-body text-label-md">
+                <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+                <a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+                <a class="hover:text-primary transition-colors underline decoration-primary font-bold" href="#">Beta
+                    Agreement</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple form handling (visual feedback only)
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Enviando...';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> ¡Aplicado!';
+                    btn.classList.replace('bg-primary', 'bg-green-600');
+                    form.reset();
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+
+</html>

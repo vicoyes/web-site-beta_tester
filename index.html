@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pasa del caos de las libretas al control total de tu negocio. Inventaria reúne ventas, stock y clientes en una sola app con Copiloto de IA. Únete a la Beta gratuita." />
+  <title>Inventaria Beta — Del caos al control total de tu negocio</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:   '#bb0023',
+            'primary-dark': '#930019',
+            'primary-light': '#ffdad8',
+            'primary-subtle': '#fff1f0',
+            surface:   '#f9f9ff',
+            'surface-low':  '#f0f3ff',
+            'surface-mid':  '#e8eeff',
+            'surface-high': '#dee8ff',
+            'on-surface':   '#111c2d',
+            'on-muted':     '#4a5568',
+            border:    '#e2e8f0',
+            'border-strong': '#cbd5e1',
+            dark:      '#1e2d3d',
+            'dark-muted': '#334155',
+          },
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+          boxShadow: {
+            card: '0 1px 4px rgba(17,28,45,0.06), 0 4px 16px rgba(17,28,45,0.04)',
+            'card-hover': '0 4px 12px rgba(17,28,45,0.08), 0 12px 32px rgba(17,28,45,0.06)',
+            'primary': '0 4px 16px rgba(187,0,35,0.25)',
+          },
+          maxWidth: { content: '720px' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .ms { font-family: 'Material Symbols Outlined'; font-weight: 400; font-style: normal; line-height: 1; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; vertical-align: middle; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .ms-filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f9f9ff; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+    /* Float animation for hero mockup */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-8px); }
+    }
+    .animate-float { animation: float 5s ease-in-out infinite; }
+
+    /* Section divider pattern */
+    .section-alt { background-color: #f0f3ff; }
+
+    /* Feature tab active state */
+    .tab-btn.active { background: #bb0023; color: #fff; }
+    .tab-btn:not(.active) { background: transparent; color: #4a5568; }
+    .tab-btn:not(.active):hover { background: #f0f3ff; color: #111c2d; }
+
+    /* Comparison toggle active */
+    .cmp-btn.active { background: #fff; color: #111c2d; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+    .cmp-btn:not(.active) { background: transparent; color: #4a5568; }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2 font-bold text-lg text-on-surface tracking-tight">
+      <span class="ms ms-filled text-primary text-[24px]">inventory_2</span>
+      Inventaria
+      <span class="text-[10px] font-bold uppercase tracking-widest bg-primary-light text-primary-dark px-2 py-0.5 rounded-full">Beta</span>
+    </a>
+
+    <!-- Nav links (hidden mobile) -->
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-on-muted">
+      <a href="#caos-control" class="hover:text-primary transition-colors">Caos vs. Control</a>
+      <a href="#caracteristicas" class="hover:text-primary transition-colors">Características</a>
+      <a href="#funciones" class="hover:text-primary transition-colors">Funciones</a>
+      <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
+    </nav>
+
+    <!-- CTA -->
+    <a href="#join"
+       class="hidden sm:inline-flex items-center gap-1.5 bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-primary-dark transition-colors shadow-primary">
+      Solicitar acceso
+    </a>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="relative pt-32 pb-20 overflow-hidden">
+  <!-- subtle radial gradient background -->
+  <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 70% 60% at 75% 30%, rgba(255,218,216,0.35) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+    <!-- Copy -->
+    <div class="space-y-7 max-w-lg">
+
+      <!-- Eyebrow badge -->
+      <div class="inline-flex items-center gap-2 bg-primary-subtle border border-primary-light text-primary-dark text-xs font-semibold px-3.5 py-1.5 rounded-full">
+        <span class="ms ms-filled text-[14px]">verified</span>
+        Programa de Acceso Temprano Gratuito
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-on-surface leading-[1.12]">
+        Del caos de las libretas al
+        <span class="text-primary"> control total</span>
+        de tu negocio.
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg text-on-muted leading-relaxed">
+        Inventaria reúne tus ventas, stock y clientes en una sola app diseñada para pequeños comercios y emprendedores. Sin hojas de cálculo, sin chats de WhatsApp perdidos.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-3 pt-1">
+        <a href="#join"
+           class="inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold text-base px-7 py-3.5 rounded-xl hover:bg-primary-dark transition-colors shadow-primary">
+          Unirme a la Beta Gratuita
+          <span class="ms text-[20px]">arrow_forward</span>
+        </a>
+        <a href="#caos-control"
+           class="inline-flex items-center justify-center gap-2 bg-white text-on-surface font-semibold text-base px-6 py-3.5 rounded-xl border border-border hover:border-border-strong hover:bg-surface-low transition-colors">
+          Ver cómo funciona
+        </a>
+      </div>
+
+      <!-- Trust signals -->
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1 text-sm text-on-muted">
+        <span class="flex items-center gap-1.5">
+          <span class="ms ms-filled text-green-600 text-[16px]">check_circle</span>
+          100% gratis durante la Beta
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="ms ms-filled text-green-600 text-[16px]">check_circle</span>
+          Sin tarjeta de crédito
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="ms ms-filled text-green-600 text-[16px]">check_circle</span>
+          +300 negocios en lista
+        </span>
+      </div>
+    </div>
+
+    <!-- Dashboard Mockup -->
+    <div class="animate-float relative hidden lg:block">
+      <div class="relative z-10 bg-white rounded-2xl border border-border shadow-card-hover overflow-hidden">
+
+        <!-- Browser chrome -->
+        <div class="flex items-center gap-1.5 px-4 py-3 bg-surface-low border-b border-border">
+          <span class="w-3 h-3 rounded-full bg-red-400"></span>
+          <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+          <span class="w-3 h-3 rounded-full bg-green-400"></span>
+          <span class="ml-3 text-[11px] text-on-muted font-mono">app.inventaria.io/dashboard</span>
+        </div>
+
+        <!-- Dash layout -->
+        <div class="grid grid-cols-12 min-h-[360px]">
+          <!-- Sidebar -->
+          <div class="col-span-3 border-r border-border bg-surface-low p-3 space-y-1">
+            <p class="text-[9px] font-bold uppercase tracking-widest text-on-muted px-2 pt-1 pb-2">Menú</p>
+            <div class="flex items-center gap-2 px-2 py-1.5 bg-primary text-white rounded-lg text-[11px] font-semibold">
+              <span class="ms ms-filled text-[14px]">grid_view</span> Panel
+            </div>
+            <div class="flex items-center gap-2 px-2 py-1.5 text-on-muted rounded-lg text-[11px] font-medium">
+              <span class="ms text-[14px]">sell</span> Ventas
+            </div>
+            <div class="flex items-center gap-2 px-2 py-1.5 text-on-muted rounded-lg text-[11px] font-medium">
+              <span class="ms text-[14px]">inventory_2</span> Stock
+            </div>
+            <div class="flex items-center gap-2 px-2 py-1.5 text-on-muted rounded-lg text-[11px] font-medium">
+              <span class="ms text-[14px]">group</span> Clientes
+            </div>
+            <div class="flex items-center gap-2 px-2 py-1.5 text-on-muted rounded-lg text-[11px] font-medium">
+              <span class="ms text-[14px]">bar_chart</span> Reportes
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="col-span-9 p-4 space-y-3">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-[13px] font-bold text-on-surface">¡Hola, Mariana!</p>
+                <p class="text-[10px] text-on-muted">Resumen del día</p>
+              </div>
+              <span class="text-[10px] font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full flex items-center gap-1">
+                <span class="ms ms-filled text-[10px]">circle</span> En línea
+              </span>
+            </div>
+
+            <!-- KPIs -->
+            <div class="grid grid-cols-2 gap-2">
+              <div class="bg-surface-low rounded-xl p-3 border border-border">
+                <p class="text-[10px] text-on-muted">Ventas del día</p>
+                <p class="text-[15px] font-extrabold text-on-surface mt-0.5">$3,420.00</p>
+                <p class="text-[9px] text-green-600 font-semibold flex items-center gap-0.5 mt-0.5">
+                  <span class="ms text-[10px]">trending_up</span> +15% hoy
+                </p>
+              </div>
+              <div class="bg-surface-low rounded-xl p-3 border border-border">
+                <p class="text-[10px] text-on-muted">Alertas de stock</p>
+                <p class="text-[15px] font-extrabold text-primary mt-0.5">2 productos</p>
+                <p class="text-[9px] text-primary font-semibold flex items-center gap-0.5 mt-0.5">
+                  <span class="ms text-[10px]">warning</span> Revisar hoy
+                </p>
+              </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="bg-surface-low rounded-xl p-3 border border-border">
+              <div class="flex justify-between mb-2">
+                <span class="text-[11px] font-bold text-on-surface">Ventas semanales</span>
+                <span class="text-[9px] text-on-muted uppercase tracking-wider">Esta semana</span>
+              </div>
+              <div class="flex items-end gap-1.5 h-16">
+                <div class="flex-1 flex flex-col items-center gap-1">
+                  <div class="w-full bg-primary/15 rounded-t h-7"></div>
+                  <span class="text-[8px] text-on-muted">Lu</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1">
+                  <div class="w-full bg-primary/15 rounded-t h-10"></div>
+                  <span class="text-[8px] text-on-muted">Ma</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1">
+                  <div class="w-full bg-primary/15 rounded-t h-8"></div>
+                  <span class="text-[8px] text-on-muted">Mi</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1">
+                  <div class="w-full bg-primary/15 rounded-t h-12"></div>
+                  <span class="text-[8px] text-on-muted">Ju</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1">
+                  <div class="w-full bg-primary rounded-t h-14 shadow-sm"></div>
+                  <span class="text-[8px] font-bold text-on-surface">Vi</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1">
+                  <div class="w-full bg-border rounded-t h-2"></div>
+                  <span class="text-[8px] text-on-muted">Sa</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1">
+                  <div class="w-full bg-border rounded-t h-2"></div>
+                  <span class="text-[8px] text-on-muted">Do</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Copilot alert -->
+            <div class="flex gap-2.5 items-start bg-primary-subtle border border-primary-light rounded-xl p-3">
+              <span class="ms ms-filled text-primary text-[18px] mt-0.5">smart_toy</span>
+              <div>
+                <p class="text-[10px] font-bold text-primary-dark uppercase tracking-wide mb-0.5">Copiloto IA</p>
+                <p class="text-[11px] text-on-surface leading-snug">"Camisas Oxford M se agotan en 3 días. Alta demanda los viernes."</p>
+                <button class="mt-1.5 text-[10px] font-bold text-primary hover:underline">Reordenar stock →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative blob -->
+      <div class="absolute -bottom-8 -right-8 -z-10 w-48 h-48 bg-primary-light/40 rounded-full blur-3xl"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PROBLEM → SOLUTION  (Caos vs. Control)
+═══════════════════════════════════════════ -->
+<section id="caos-control" class="py-24 section-alt border-y border-border">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="text-center mb-12 space-y-3 max-w-2xl mx-auto">
+      <p class="text-xs font-bold uppercase tracking-widest text-primary">El punto de partida</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-on-surface">¿Cómo estás manejando tu negocio hoy?</h2>
+      <p class="text-base text-on-muted leading-relaxed">
+        Compara lo que vive un comerciante sin herramientas con la claridad que da Inventaria.
+      </p>
+    </div>
+
+    <!-- Toggle -->
+    <div class="flex justify-center mb-10">
+      <div class="inline-flex bg-surface-mid rounded-xl p-1 gap-1">
+        <button id="btn-caos" onclick="toggleComparison('caos')"
+          class="cmp-btn active px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-2">
+          <span class="ms text-[18px]">menu_book</span> Sin Inventaria
+        </button>
+        <button id="btn-control" onclick="toggleComparison('control')"
+          class="cmp-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-2">
+          <span class="ms text-[18px]">verified</span> Con Inventaria
+        </button>
+      </div>
+    </div>
+
+    <!-- Panels -->
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Caos Panel -->
+      <div id="panel-caos" class="grid md:grid-cols-2 gap-8 items-start">
+        <div class="space-y-5">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 border border-red-100 px-3 py-1 rounded-full">
+            <span class="ms ms-filled text-[14px]">cancel</span> El problema diario
+          </span>
+          <h3 class="text-2xl font-bold text-on-surface">El desorden de las libretas y el WhatsApp</h3>
+          <p class="text-on-muted leading-relaxed">
+            Muchos comercios venden todos los días pero organizan su información de manera fragmentada. Eso cuesta dinero, clientes y tranquilidad.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex gap-3">
+              <span class="ms ms-filled text-red-500 text-[20px] mt-0.5 flex-shrink-0">warning</span>
+              <div>
+                <p class="font-semibold text-on-surface text-sm">Cuentas en papel o servilletas</p>
+                <p class="text-sm text-on-muted mt-0.5">Registros que nunca cuadran al final del día.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="ms ms-filled text-red-500 text-[20px] mt-0.5 flex-shrink-0">warning</span>
+              <div>
+                <p class="font-semibold text-on-surface text-sm">Pedidos perdidos en WhatsApp</p>
+                <p class="text-sm text-on-muted mt-0.5">Clientes esperando horas sin respuesta.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="ms ms-filled text-red-500 text-[20px] mt-0.5 flex-shrink-0">warning</span>
+              <div>
+                <p class="font-semibold text-on-surface text-sm">Inventario que adivinas</p>
+                <p class="text-sm text-on-muted mt-0.5">Vendes algo agotado o compras de más sin saberlo.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white border border-red-100 rounded-2xl p-5 space-y-3 shadow-card">
+          <p class="text-[11px] font-bold text-red-700 uppercase tracking-wider">Tu día hoy</p>
+          <div class="relative bg-red-50 border border-red-100 rounded-xl p-4">
+            <span class="absolute top-3 right-3 text-[10px] font-bold text-red-600 bg-red-100 px-2 py-0.5 rounded">PERDIDO</span>
+            <p class="text-[11px] text-on-muted">Nota adhesiva:</p>
+            <p class="text-sm font-semibold text-red-800 line-through mt-1">"Don Pedro: 3 pantalones azul marino talla 32 — ¿pagó?"</p>
+            <p class="text-[10px] text-red-500 font-medium mt-2">⚠ Suma incompleta · Stock sin verificar</p>
+          </div>
+          <div class="bg-white border border-red-100 rounded-xl p-4 space-y-2">
+            <div class="flex justify-between">
+              <span class="text-[11px] font-semibold text-on-surface">WhatsApp — Clara</span>
+              <span class="text-[10px] text-on-muted bg-gray-100 px-2 py-0.5 rounded">Hace 6 horas</span>
+            </div>
+            <p class="text-[11px] text-on-muted italic">"Hola, ¿tienes el vestido rojo talla S?"</p>
+            <p class="text-[11px] font-semibold text-red-700 bg-red-50 rounded-lg px-3 py-2">Sin responder — no sabes si hay stock</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Control Panel (hidden) -->
+      <div id="panel-control" class="hidden grid md:grid-cols-2 gap-8 items-start">
+        <div class="space-y-5">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 border border-green-100 px-3 py-1 rounded-full">
+            <span class="ms ms-filled text-[14px]">check_circle</span> La solución real
+          </span>
+          <h3 class="text-2xl font-bold text-on-surface">Todo bajo control con Inventaria</h3>
+          <p class="text-on-muted leading-relaxed">
+            Organiza, controla y proyecta tu negocio desde una app intuitiva diseñada para trabajar al ritmo de tu comercio.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex gap-3">
+              <span class="ms ms-filled text-green-600 text-[20px] mt-0.5 flex-shrink-0">check_circle</span>
+              <div>
+                <p class="font-semibold text-on-surface text-sm">Ventas registradas en segundos</p>
+                <p class="text-sm text-on-muted mt-0.5">Ticket PDF profesional listo para compartir.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="ms ms-filled text-green-600 text-[20px] mt-0.5 flex-shrink-0">check_circle</span>
+              <div>
+                <p class="font-semibold text-on-surface text-sm">Stock actualizado automáticamente</p>
+                <p class="text-sm text-on-muted mt-0.5">Alertas antes de quedarte en cero.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="ms ms-filled text-green-600 text-[20px] mt-0.5 flex-shrink-0">check_circle</span>
+              <div>
+                <p class="font-semibold text-on-surface text-sm">IA que analiza por ti</p>
+                <p class="text-sm text-on-muted mt-0.5">El Copiloto te dice qué productos te hacen ganar dinero.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white border border-green-100 rounded-2xl p-5 space-y-3 shadow-card">
+          <p class="text-[11px] font-bold text-green-700 uppercase tracking-wider">Tu día con Inventaria</p>
+          <div class="relative bg-green-50 border border-green-100 rounded-xl p-4">
+            <span class="absolute top-3 right-3 text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded">COMPLETADO</span>
+            <p class="text-[11px] text-on-muted">Venta #1204 — Don Pedro</p>
+            <p class="text-sm font-bold text-on-surface mt-1">$1,250.00 · Efectivo</p>
+            <p class="text-[10px] text-on-muted font-medium mt-2">✓ Stock: Pantalón Azul M → −3 unidades</p>
+          </div>
+          <div class="bg-white border border-green-100 rounded-xl p-4 space-y-2">
+            <div class="flex justify-between">
+              <span class="text-[11px] font-semibold text-on-surface">WhatsApp — Clara</span>
+              <span class="text-[10px] font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded">Enviado</span>
+            </div>
+            <p class="text-[11px] text-on-muted italic">"¡Hola Clara! Sí, tenemos el Vestido Rojo Talla S. ¡Te lo reservo!"</p>
+            <div class="text-[11px] font-semibold text-white bg-primary rounded-lg px-3 py-2 text-center">Ticket PDF generado</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     3 PILARES
+═══════════════════════════════════════════ -->
+<section id="caracteristicas" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center mb-14 max-w-2xl mx-auto space-y-3">
+      <p class="text-xs font-bold uppercase tracking-widest text-primary">Lo esencial, bien hecho</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-on-surface">Una forma más simple de manejar tu negocio</h2>
+      <p class="text-base text-on-muted leading-relaxed">Tres módulos diseñados para dueños de negocio ocupados, no para expertos en software.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Pilar 1 -->
+      <div class="group bg-white rounded-2xl border border-border p-7 hover:border-primary/30 hover:shadow-card-hover transition-all duration-300 flex flex-col">
+        <div class="w-12 h-12 bg-primary-subtle rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
+          <span class="ms ms-filled text-primary group-hover:text-white text-[22px] transition-colors duration-300">receipt_long</span>
+        </div>
+        <h3 class="text-lg font-bold text-on-surface mb-2">Operación sin fricciones</h3>
+        <p class="text-sm text-on-muted leading-relaxed flex-1">
+          Crea pedidos rápidos, gestiona ventas pendientes y genera comprobantes en PDF para impresoras térmicas de 58mm, 80mm o 100mm.
+        </p>
+        <div class="mt-5 pt-4 border-t border-border flex gap-2">
+          <span class="text-[11px] font-semibold bg-primary text-white px-2.5 py-1 rounded-md">58mm</span>
+          <span class="text-[11px] font-semibold bg-surface-low text-on-surface px-2.5 py-1 rounded-md border border-border">80mm</span>
+          <span class="text-[11px] font-semibold bg-surface-low text-on-surface px-2.5 py-1 rounded-md border border-border">100mm</span>
+        </div>
+      </div>
+
+      <!-- Pilar 2 -->
+      <div class="group bg-white rounded-2xl border border-border p-7 hover:border-primary/30 hover:shadow-card-hover transition-all duration-300 flex flex-col">
+        <div class="w-12 h-12 bg-primary-subtle rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
+          <span class="ms ms-filled text-primary group-hover:text-white text-[22px] transition-colors duration-300">inventory_2</span>
+        </div>
+        <h3 class="text-lg font-bold text-on-surface mb-2">Inventario con trazabilidad</h3>
+        <p class="text-sm text-on-muted leading-relaxed flex-1">
+          Controla variaciones por talla, color y presentación. Historial completo de entradas y salidas con alertas automáticas de stock mínimo.
+        </p>
+        <div class="mt-5 pt-4 border-t border-border space-y-2">
+          <div class="flex justify-between text-[11px]">
+            <span class="font-medium text-on-surface">Camisa Oxford Celeste (M)</span>
+            <span class="font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">Quedan 2</span>
+          </div>
+          <div class="w-full bg-surface-mid h-1.5 rounded-full">
+            <div class="bg-red-500 h-full rounded-full w-[20%]"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class="group bg-white rounded-2xl border border-border p-7 hover:border-primary/30 hover:shadow-card-hover transition-all duration-300 flex flex-col">
+        <div class="w-12 h-12 bg-primary-subtle rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
+          <span class="ms ms-filled text-primary group-hover:text-white text-[22px] transition-colors duration-300">smart_toy</span>
+        </div>
+        <h3 class="text-lg font-bold text-on-surface mb-2">Copiloto de Negocios IA</h3>
+        <p class="text-sm text-on-muted leading-relaxed flex-1">
+          No solo guardes datos: el Copiloto analiza tus números y te avisa qué productos no se mueven, cuáles son estrella y cuándo comprar.
+        </p>
+        <div class="mt-5 pt-4 border-t border-border flex gap-2 items-start">
+          <span class="ms ms-filled text-primary text-[16px] mt-0.5 flex-shrink-0">lightbulb</span>
+          <p class="text-[11px] text-on-muted italic">"El 40% de tu margen viene de 3 productos estrella este mes."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SCARCITY BAR
+═══════════════════════════════════════════ -->
+<div class="bg-primary py-5">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-5">
+    <div class="text-white text-center sm:text-left">
+      <p class="text-lg font-bold">¡Solo 50 cupos para la Beta!</p>
+      <p class="text-sm text-white/80 mt-0.5">Buscamos negocios reales que quieran crecer con nosotros.</p>
+    </div>
+    <div class="w-full sm:max-w-xs">
+      <div class="flex justify-between text-xs font-semibold text-white/80 mb-1.5">
+        <span>Lugares reservados</span>
+        <span>34 / 50</span>
+      </div>
+      <div class="bg-white/20 rounded-full h-3 overflow-hidden">
+        <div class="bg-white h-full rounded-full" style="width: 68%;"></div>
+      </div>
+    </div>
+    <a href="#join"
+       class="flex-shrink-0 bg-white text-primary font-semibold text-sm px-6 py-2.5 rounded-lg hover:bg-primary-light transition-colors">
+      Reservar mi lugar
+    </a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     CONNECTION HUB
+═══════════════════════════════════════════ -->
+<section class="py-20 section-alt border-y border-border">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-12 space-y-3">
+      <p class="text-xs font-bold uppercase tracking-widest text-primary">Todo en un lugar</p>
+      <h2 class="text-3xl font-extrabold text-on-surface">Inventaria conecta las áreas clave de tu comercio</h2>
+      <p class="text-base text-on-muted">Cada módulo se comunica con los demás para darte una visión completa sin duplicar trabajo.</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+      <!-- Items -->
+      <div class="bg-white border border-border rounded-xl p-4 text-center hover:border-primary/30 hover:shadow-card transition-all group">
+        <span class="ms ms-filled text-primary text-[28px] group-hover:scale-110 inline-block transition-transform">sell</span>
+        <p class="text-sm font-semibold text-on-surface mt-2">Ventas</p>
+        <p class="text-[11px] text-on-muted mt-0.5 leading-tight">lo que ocurre</p>
+      </div>
+      <div class="bg-white border border-border rounded-xl p-4 text-center hover:border-primary/30 hover:shadow-card transition-all group">
+        <span class="ms ms-filled text-primary text-[28px] group-hover:scale-110 inline-block transition-transform">inventory_2</span>
+        <p class="text-sm font-semibold text-on-surface mt-2">Inventario</p>
+        <p class="text-[11px] text-on-muted mt-0.5 leading-tight">qué tienes</p>
+      </div>
+      <div class="bg-white border border-border rounded-xl p-4 text-center hover:border-primary/30 hover:shadow-card transition-all group">
+        <span class="ms ms-filled text-primary text-[28px] group-hover:scale-110 inline-block transition-transform">group</span>
+        <p class="text-sm font-semibold text-on-surface mt-2">Clientes</p>
+        <p class="text-[11px] text-on-muted mt-0.5 leading-tight">quién compra</p>
+      </div>
+      <div class="bg-white border border-border rounded-xl p-4 text-center hover:border-primary/30 hover:shadow-card transition-all group">
+        <span class="ms ms-filled text-primary text-[28px] group-hover:scale-110 inline-block transition-transform">local_shipping</span>
+        <p class="text-sm font-semibold text-on-surface mt-2">Proveedores</p>
+        <p class="text-[11px] text-on-muted mt-0.5 leading-tight">tu stock</p>
+      </div>
+      <div class="bg-white border border-border rounded-xl p-4 text-center hover:border-primary/30 hover:shadow-card transition-all group">
+        <span class="ms ms-filled text-primary text-[28px] group-hover:scale-110 inline-block transition-transform">receipt</span>
+        <p class="text-sm font-semibold text-on-surface mt-2">Tickets</p>
+        <p class="text-[11px] text-on-muted mt-0.5 leading-tight">comprobantes</p>
+      </div>
+      <div class="bg-white border border-border rounded-xl p-4 text-center hover:border-primary/30 hover:shadow-card transition-all group">
+        <span class="ms ms-filled text-primary text-[28px] group-hover:scale-110 inline-block transition-transform">bar_chart</span>
+        <p class="text-sm font-semibold text-on-surface mt-2">Reportes</p>
+        <p class="text-[11px] text-on-muted mt-0.5 leading-tight">resultados</p>
+      </div>
+      <div class="bg-primary-subtle border border-primary-light rounded-xl p-4 text-center hover:shadow-card transition-all group col-span-2 sm:col-span-1">
+        <span class="ms ms-filled text-primary text-[28px] group-hover:scale-110 inline-block transition-transform">smart_toy</span>
+        <p class="text-sm font-semibold text-primary-dark mt-2">Copiloto</p>
+        <p class="text-[11px] text-primary-dark/70 mt-0.5 leading-tight">alertas IA</p>
+      </div>
+    </div>
+
+    <p class="text-center text-sm font-bold text-on-surface mt-8">Todo conectado. Una sola app.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURE EXPLORER
+═══════════════════════════════════════════ -->
+<section id="funciones" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center mb-12 space-y-3 max-w-2xl mx-auto">
+      <p class="text-xs font-bold uppercase tracking-widest text-primary">Funcionalidades</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-on-surface">Todo lo que puedes hacer con Inventaria</h2>
+      <p class="text-base text-on-muted leading-relaxed">
+        Inventaria acompaña la operación diaria de tu comercio, desde el registro de una venta hasta el análisis de productos, stock y clientes.
+      </p>
+    </div>
+
+    <!-- Two-column layout: sidebar menu + content panel -->
+    <div class="bg-white border border-border rounded-2xl shadow-card overflow-hidden">
+      <div class="grid lg:grid-cols-[260px_1fr]">
+
+        <!-- ── Left sidebar: category list ── -->
+        <aside class="bg-surface-low border-b lg:border-b-0 lg:border-r border-border p-4">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-on-muted px-3 pb-3">Categorías</p>
+          <nav class="flex flex-row flex-wrap lg:flex-col gap-1">
+
+            <button onclick="switchCat('ventas')" id="tab-ventas"
+              class="tab-btn active w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">sell</span>
+              <span class="hidden lg:inline">Ventas y pedidos</span>
+              <span class="lg:hidden">Ventas</span>
+            </button>
+
+            <button onclick="switchCat('productos')" id="tab-productos"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">shopping_bag</span>
+              <span class="hidden lg:inline">Productos</span>
+              <span class="lg:hidden">Productos</span>
+            </button>
+
+            <button onclick="switchCat('variaciones')" id="tab-variaciones"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">style</span>
+              <span class="hidden lg:inline">Variaciones</span>
+              <span class="lg:hidden">Variaciones</span>
+            </button>
+
+            <button onclick="switchCat('inventario')" id="tab-inventario"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">inventory_2</span>
+              <span class="hidden lg:inline">Inventario</span>
+              <span class="lg:hidden">Inventario</span>
+            </button>
+
+            <button onclick="switchCat('clientes')" id="tab-clientes"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">group</span>
+              <span class="hidden lg:inline">Clientes</span>
+              <span class="lg:hidden">Clientes</span>
+            </button>
+
+            <button onclick="switchCat('proveedores')" id="tab-proveedores"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">local_shipping</span>
+              <span class="hidden lg:inline">Proveedores</span>
+              <span class="lg:hidden">Proveedores</span>
+            </button>
+
+            <button onclick="switchCat('tickets')" id="tab-tickets"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">receipt</span>
+              <span class="hidden lg:inline">Tickets</span>
+              <span class="lg:hidden">Tickets</span>
+            </button>
+
+            <button onclick="switchCat('reportes')" id="tab-reportes"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">bar_chart</span>
+              <span class="hidden lg:inline">Reportes</span>
+              <span class="lg:hidden">Reportes</span>
+            </button>
+
+            <button onclick="switchCat('dashboard')" id="tab-dashboard"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">dashboard</span>
+              <span class="hidden lg:inline">Dashboard</span>
+              <span class="lg:hidden">Dashboard</span>
+            </button>
+
+            <button onclick="switchCat('copiloto')" id="tab-copiloto"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">smart_toy</span>
+              <span class="hidden lg:inline">Copiloto IA</span>
+              <span class="lg:hidden">Copiloto</span>
+            </button>
+
+            <button onclick="switchCat('config')" id="tab-config"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">settings</span>
+              <span class="hidden lg:inline">Configuración</span>
+              <span class="lg:hidden">Config.</span>
+            </button>
+
+          </nav>
+        </aside>
+
+        <!-- ── Right: content panel ── -->
+        <main class="p-8 min-h-[400px]">
+
+          <!-- Ventas -->
+          <div id="cat-ventas" class="cat-panel space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">sell</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Ventas y pedidos</h3>
+                <p class="text-sm text-on-muted">Maneja todo el flujo de caja y registro de ventas en el mostrador, sin complejidad.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Crear ventas de forma rápida</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Buscar por nombre, SKU o código de barras</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Agregar productos con variaciones</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Aplicar descuentos por % o valor fijo</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Vender como Cliente Invitado</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Guardar y retomar pedidos pendientes</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Anular pedidos cuando sea necesario</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Consultar historial y detalle de cada venta</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Registrar medio de pago y calcular cambio</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Agregar notas internas al pedido</div>
+            </div>
+          </div>
+
+          <!-- Productos -->
+          <div id="cat-productos" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">shopping_bag</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Productos</h3>
+                <p class="text-sm text-on-muted">Cataloga tus artículos con todo el detalle para encontrarlos y venderlos al instante.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Crear y editar productos</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Nombre, descripción, precio y costo</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Registrar SKU y código de barras</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Asignar categorías y subir imagen</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Activar o desactivar productos</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Buscar y filtrar por categoría</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Ordenar por nombre o fecha</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Asociar con proveedores</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Simples o con variaciones</div>
+            </div>
+          </div>
+
+          <!-- Variaciones -->
+          <div id="cat-variaciones" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">style</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Variaciones de productos</h3>
+                <p class="text-sm text-on-muted">Múltiples presentaciones sin perder el orden en bodega.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Variaciones por talla, color, presentación o referencia</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Stock individual por variación</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Precio específico por variación</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>SKU propio para cada variación</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Imagen por variación</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Stock total calculado automáticamente</div>
+            </div>
+          </div>
+
+          <!-- Inventario -->
+          <div id="cat-inventario" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">inventory_2</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Inventario</h3>
+                <p class="text-sm text-on-muted">Trazabilidad completa de lo que entra y sale de tu almacén.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Controlar stock disponible</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Configurar stock mínimo</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Alertas automáticas de reabastecimiento</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Registrar entradas, salidas y ajustes</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Historial de movimientos con stock resultante</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Motivo del movimiento y referencia de documento</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Filtrar y ordenar movimientos</div>
+            </div>
+          </div>
+
+          <!-- Clientes -->
+          <div id="cat-clientes" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">group</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Clientes</h3>
+                <p class="text-sm text-on-muted">Fichas de clientes para un trato personalizado y ventas recurrentes.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Crear fichas con nombre, teléfono, correo y dirección</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Historial de pedidos y gasto acumulado</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Ver cantidad de pedidos realizados</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Llamar o escribir WhatsApp desde la ficha</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Vender como Cliente Invitado sin crear ficha</div>
+            </div>
+          </div>
+
+          <!-- Proveedores -->
+          <div id="cat-proveedores" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">local_shipping</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Proveedores</h3>
+                <p class="text-sm text-on-muted">Organiza tus distribuidores para un reabastecimiento eficiente.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Crear y editar proveedores</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Guardar datos de contacto y notas</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Dirección e identificación fiscal</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Asociar con productos del catálogo</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Contactar por llamada o WhatsApp en un toque</div>
+            </div>
+          </div>
+
+          <!-- Tickets -->
+          <div id="cat-tickets" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">receipt</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Tickets y comprobantes</h3>
+                <p class="text-sm text-on-muted">Comprobantes profesionales para impresión o envío digital.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Generar PDF por cada venta completada</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Ver, compartir, descargar e imprimir</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Formatos 58mm, 80mm y 100mm</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Recuerda el último tamaño usado</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Datos del comercio y del cliente</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Subtotal, impuestos, descuentos y total</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Medio de pago, monto recibido y cambio</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Código de barras en el comprobante</div>
+            </div>
+          </div>
+
+          <!-- Reportes -->
+          <div id="cat-reportes" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">bar_chart</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Reportes</h3>
+                <p class="text-sm text-on-muted">Métricas claras para decisiones basadas en datos, no en suposiciones.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Ingresos por periodo y unidades vendidas</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Pedidos completados, pendientes o anulados</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Ventas por día, mes o año</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Comparar con periodos anteriores</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Medios de pago utilizados</div>
+            </div>
+          </div>
+
+          <!-- Dashboard -->
+          <div id="cat-dashboard" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">dashboard</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Dashboard</h3>
+                <p class="text-sm text-on-muted">Tu centro de operaciones: información clave al primer vistazo.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Resumen de ingresos, pedidos y unidades</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Gráfico de ventas (semana, mes, año)</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Modo privacidad: ocultar ingresos en pantalla</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Avisos de productos con stock mínimo</div>
+            </div>
+          </div>
+
+          <!-- Copiloto -->
+          <div id="cat-copiloto" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">smart_toy</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Copiloto de negocio IA</h3>
+                <p class="text-sm text-on-muted">El asesor inteligente que detecta oportunidades antes de que las pierdas.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Detectar stock bajo y posibles quiebres</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Productos sin movimiento y márgenes reducidos</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Identificar productos estrella</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Señalar exceso de inventario</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Sugerir compras recomendadas</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Tendencias de ventas y rotación de inventario</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Estimar días de inventario disponible</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Basado en datos reales de tu comercio</div>
+            </div>
+          </div>
+
+          <!-- Config -->
+          <div id="cat-config" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">settings</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Configuración del comercio</h3>
+                <p class="text-sm text-on-muted">Adapta Inventaria a la identidad y operación de tu negocio.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Nombre del negocio y logotipo</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Dirección y datos de contacto</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Moneda, símbolo y porcentaje de IVA</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Activar o crear medios de pago personalizados</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Zona horaria e identificación fiscal</div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Closing callout -->
+    <div class="mt-6 bg-white border border-border rounded-2xl p-6 text-center max-w-2xl mx-auto">
+      <p class="font-bold text-on-surface mb-1">Una app completa, pero fácil de empezar.</p>
+      <p class="text-sm text-on-muted leading-relaxed">
+        Puedes empezar solo con productos, ventas y stock. A medida que tu negocio lo pida, activas clientes, proveedores, reportes y el Copiloto.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<!-- ═══════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════ -->
+<section id="faq" class="py-24 section-alt border-t border-border">
+  <div class="max-w-3xl mx-auto px-6">
+
+    <div class="text-center mb-12 space-y-3">
+      <p class="text-xs font-bold uppercase tracking-widest text-primary">Dudas frecuentes</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-on-surface">Preguntas frecuentes</h2>
+      <p class="text-base text-on-muted">Todo lo que necesitas saber antes de solicitar acceso.</p>
+    </div>
+
+    <div class="space-y-3">
+
+      <details class="group bg-white border border-border rounded-xl overflow-hidden open:ring-1 open:ring-primary/40 transition-all">
+        <summary class="flex justify-between items-center px-6 py-4 cursor-pointer list-none font-semibold text-on-surface text-base select-none">
+          ¿Tiene algún costo participar en la beta?
+          <span class="ms text-[20px] text-on-muted transition-transform duration-200 group-open:rotate-180">expand_more</span>
+        </summary>
+        <p class="px-6 pb-5 text-sm text-on-muted leading-relaxed border-t border-border pt-4">
+          Ninguno. El acceso durante toda la beta es 100% gratuito. Los usuarios fundadores que contribuyan con feedback recibirán beneficios exclusivos (como descuento vitalicio) cuando la app sea de pago.
+        </p>
+      </details>
+
+      <details class="group bg-white border border-border rounded-xl overflow-hidden open:ring-1 open:ring-primary/40 transition-all">
+        <summary class="flex justify-between items-center px-6 py-4 cursor-pointer list-none font-semibold text-on-surface text-base select-none">
+          ¿Inventaria incluye facturación electrónica?
+          <span class="ms text-[20px] text-on-muted transition-transform duration-200 group-open:rotate-180">expand_more</span>
+        </summary>
+        <p class="px-6 pb-5 text-sm text-on-muted leading-relaxed border-t border-border pt-4">
+          No en esta fase. Nos enfocamos en la agilidad del registro de ventas cotidianas y el control exacto de stock. La facturación electrónica está planeada para versiones futuras según las solicitudes de los usuarios beta.
+        </p>
+      </details>
+
+      <details class="group bg-white border border-border rounded-xl overflow-hidden open:ring-1 open:ring-primary/40 transition-all">
+        <summary class="flex justify-between items-center px-6 py-4 cursor-pointer list-none font-semibold text-on-surface text-base select-none">
+          ¿Cómo funciona la impresión de tickets?
+          <span class="ms text-[20px] text-on-muted transition-transform duration-200 group-open:rotate-180">expand_more</span>
+        </summary>
+        <p class="px-6 pb-5 text-sm text-on-muted leading-relaxed border-t border-border pt-4">
+          Genera comprobantes en PDF con dimensiones para ticketeras térmicas (58mm, 80mm, 100mm). Puedes conectarte vía Bluetooth o enviar el PDF directamente por WhatsApp.
+        </p>
+      </details>
+
+      <details class="group bg-white border border-border rounded-xl overflow-hidden open:ring-1 open:ring-primary/40 transition-all">
+        <summary class="flex justify-between items-center px-6 py-4 cursor-pointer list-none font-semibold text-on-surface text-base select-none">
+          ¿Cómo me ayuda realmente el Copiloto IA?
+          <span class="ms text-[20px] text-on-muted transition-transform duration-200 group-open:rotate-180">expand_more</span>
+        </summary>
+        <p class="px-6 pb-5 text-sm text-on-muted leading-relaxed border-t border-border pt-4">
+          El Copiloto escanea tus patrones de venta e inventario para responderte en lenguaje simple: qué productos tienen baja rotación, cuáles generan mayor margen y cuándo conviene comprar más stock.
+        </p>
+      </details>
+
+      <details class="group bg-white border border-border rounded-xl overflow-hidden open:ring-1 open:ring-primary/40 transition-all">
+        <summary class="flex justify-between items-center px-6 py-4 cursor-pointer list-none font-semibold text-on-surface text-base select-none">
+          ¿Están seguros mis datos?
+          <span class="ms text-[20px] text-on-muted transition-transform duration-200 group-open:rotate-180">expand_more</span>
+        </summary>
+        <p class="px-6 pb-5 text-sm text-on-muted leading-relaxed border-t border-border pt-4">
+          Totalmente. Tus datos se cifran con estándares industriales y nunca se comparten con terceros. Puedes exportar todo tu catálogo e historial de ventas en CSV en cualquier momento.
+        </p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CTA  /  FORM
+═══════════════════════════════════════════ -->
+<section id="join" class="py-24">
+  <div class="max-w-2xl mx-auto px-6">
+
+    <div class="bg-dark rounded-3xl p-10 text-center space-y-6 relative overflow-hidden">
+      <!-- Decorative blob -->
+      <div class="absolute -top-16 -right-16 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 space-y-4">
+        <p class="text-xs font-bold uppercase tracking-widest text-primary-light">Cupos limitados</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+          ¿Tienes un negocio real y quieres dejar de adivinar tus números?
+        </h2>
+        <p class="text-base text-white/70 leading-relaxed max-w-lg mx-auto">
+          Estamos buscando los primeros comercios que prueben Inventaria antes del lanzamiento oficial. Acceso 100% gratuito. Tus comentarios construirán la herramienta definitiva.
+        </p>
+      </div>
+
+      <!-- Form -->
+      <form id="beta-form" class="relative z-10 text-left space-y-4 max-w-md mx-auto">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="f-name" class="block text-[11px] font-bold uppercase tracking-wider text-white/60 mb-1.5">Nombre completo</label>
+            <input id="f-name" type="text" required placeholder="Ej. Carlos Mendoza"
+              class="w-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition" />
+          </div>
+          <div>
+            <label for="f-email" class="block text-[11px] font-bold uppercase tracking-wider text-white/60 mb-1.5">Correo electrónico</label>
+            <input id="f-email" type="email" required placeholder="Ej. carlos@mitienda.com"
+              class="w-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition" />
+          </div>
+        </div>
+        <div>
+          <label for="f-type" class="block text-[11px] font-bold uppercase tracking-wider text-white/60 mb-1.5">Giro de tu negocio</label>
+          <select id="f-type" required
+            class="w-full bg-white/10 border border-white/20 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition [&>option]:text-on-surface">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="ropa">Ropa y Calzado</option>
+            <option value="abarrotes">Minimarket / Abarrotes</option>
+            <option value="tecnologia">Accesorios y Tecnología</option>
+            <option value="alimentos">Alimentos y Bebidas</option>
+            <option value="servicios">Servicios / Emprendimiento</option>
+            <option value="otro">Otro giro</option>
+          </select>
+        </div>
+        <button type="submit" id="submit-btn"
+          class="w-full flex items-center justify-center gap-2 bg-primary text-white font-semibold text-base px-6 py-3.5 rounded-xl hover:bg-primary-dark transition-colors shadow-primary active:scale-95">
+          Solicitar Acceso Beta Exclusivo
+          <span class="ms text-[20px]">send</span>
+        </button>
+        <p class="text-center text-[11px] text-white/40">
+          Al enviar aceptas nuestro Acuerdo de Pruebas Beta y Política de Privacidad.
+        </p>
+      </form>
+
+      <!-- Success state -->
+      <div id="success-widget" class="relative z-10 hidden space-y-4 py-4">
+        <span class="ms ms-filled text-green-400 text-[56px]">check_circle</span>
+        <h3 class="text-2xl font-extrabold text-white">¡Solicitud recibida!</h3>
+        <p class="text-white/70 text-base leading-relaxed max-w-sm mx-auto">
+          Revisaremos tu perfil y te enviaremos las credenciales de acceso en las próximas 24 horas. ¡Gracias!
+        </p>
+        <button onclick="resetForm()"
+          class="text-sm font-semibold text-white/60 hover:text-white underline transition-colors">
+          Aplicar con otro negocio
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="border-t border-border bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2 font-bold text-base text-on-surface">
+      <span class="ms ms-filled text-primary text-[22px]">inventory_2</span>
+      Inventaria
+    </div>
+    <p class="text-sm text-on-muted text-center">© 2026 Inventaria. Programa de Beta Profesional.</p>
+    <div class="flex flex-wrap justify-center gap-5 text-sm text-on-muted">
+      <a href="#" class="hover:text-primary transition-colors">Privacidad</a>
+      <a href="#" class="hover:text-primary transition-colors">Términos</a>
+      <a href="#" class="hover:text-primary transition-colors">Soporte</a>
+      <a href="#" class="hover:text-primary transition-colors font-semibold underline decoration-primary">Acuerdo Beta</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+  // ── Caos vs Control toggle ──────────────────
+  function toggleComparison(mode) {
+    const panelCaos    = document.getElementById('panel-caos');
+    const panelControl = document.getElementById('panel-control');
+    const btnCaos      = document.getElementById('btn-caos');
+    const btnControl   = document.getElementById('btn-control');
+
+    if (mode === 'caos') {
+      panelCaos.classList.remove('hidden');
+      panelControl.classList.add('hidden');
+      btnCaos.classList.add('active');
+      btnControl.classList.remove('active');
+    } else {
+      panelCaos.classList.add('hidden');
+      panelControl.classList.remove('hidden');
+      btnControl.classList.add('active');
+      btnCaos.classList.remove('active');
+    }
+  }
+
+  // ── Feature tabs ────────────────────────────
+  const ALL_CATS = ['ventas','productos','variaciones','inventario','clientes','proveedores','tickets','reportes','dashboard','copiloto','config'];
+
+  function switchCat(cat) {
+    ALL_CATS.forEach(c => {
+      document.getElementById('cat-' + c).classList.add('hidden');
+      document.getElementById('tab-' + c).classList.remove('active');
+    });
+    document.getElementById('cat-' + cat).classList.remove('hidden');
+    document.getElementById('tab-' + cat).classList.add('active');
+  }
+
+  // ── Form handling ───────────────────────────
+  const form          = document.getElementById('beta-form');
+  const successWidget = document.getElementById('success-widget');
+  const submitBtn     = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const orig = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span class="ms animate-spin text-[20px]">sync</span> Procesando...';
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+      form.classList.add('hidden');
+      successWidget.classList.remove('hidden');
+    }, 1800);
+  });
+
+  function resetForm() {
+    form.reset();
+    form.classList.remove('hidden');
+    successWidget.classList.add('hidden');
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Solicitar Acceso Beta Exclusivo <span class="ms text-[20px]">send</span>';
+  }
+
+  // ── Smooth scroll ───────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const el = document.querySelector(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
