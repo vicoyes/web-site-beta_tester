@@ -1395,21 +1395,25 @@
 
       <!-- Form -->
       <form id="beta-form" class="relative z-10 text-left space-y-4 max-w-md mx-auto">
+        <div class="hidden" aria-hidden="true">
+          <label for="f-website">Sitio web</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
             <label for="f-name" class="block text-[11px] font-bold uppercase tracking-wider text-white/60 mb-1.5">Nombre completo</label>
-            <input id="f-name" type="text" required placeholder="Ej. Carlos Mendoza"
+            <input id="f-name" name="nombre" type="text" required autocomplete="name" maxlength="100" placeholder="Ej. Carlos Mendoza"
               class="w-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition" />
           </div>
           <div>
             <label for="f-email" class="block text-[11px] font-bold uppercase tracking-wider text-white/60 mb-1.5">Correo electrónico</label>
-            <input id="f-email" type="email" required placeholder="Ej. carlos@mitienda.com"
+            <input id="f-email" name="correo" type="email" required autocomplete="email" maxlength="254" placeholder="Ej. carlos@mitienda.com"
               class="w-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition" />
           </div>
         </div>
         <div>
           <label for="f-type" class="block text-[11px] font-bold uppercase tracking-wider text-white/60 mb-1.5">Giro de tu negocio</label>
-          <select id="f-type" required
+          <select id="f-type" name="giro" required
             class="w-full bg-white/10 border border-white/20 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition [&>option]:text-on-surface">
             <option value="" disabled selected>Selecciona una opción</option>
             <option value="ropa">Ropa y Calzado</option>
@@ -1425,23 +1429,14 @@
           Solicitar Acceso Beta Exclusivo
           <span class="ms text-[20px]">send</span>
         </button>
+        <p id="form-error" role="alert" class="hidden text-center text-sm font-medium text-red-200 bg-red-950/40 border border-red-300/20 rounded-xl px-4 py-3">
+          No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo nuevamente.
+        </p>
         <p class="text-center text-[11px] text-white/40">
-          Al enviar aceptas nuestro Acuerdo de Pruebas Beta y Política de Privacidad.
+          Al enviar aceptas nuestro <a href="acuerdo-beta.html" class="underline hover:text-white/70">Acuerdo de Pruebas Beta</a> y
+          <a href="privacidad.html" class="underline hover:text-white/70">Política de Privacidad</a>.
         </p>
       </form>
-
-      <!-- Success state -->
-      <div id="success-widget" class="relative z-10 hidden space-y-4 py-4">
-        <span class="ms ms-filled text-green-400 text-[56px]">check_circle</span>
-        <h3 class="text-2xl font-extrabold text-white">¡Solicitud recibida!</h3>
-        <p class="text-white/70 text-base leading-relaxed max-w-sm mx-auto">
-          Revisaremos tu perfil y te enviaremos las credenciales de acceso en las próximas 24 horas. ¡Gracias!
-        </p>
-        <button onclick="resetForm()"
-          class="text-sm font-semibold text-white/60 hover:text-white underline transition-colors">
-          Aplicar con otro negocio
-        </button>
-      </div>
 
     </div>
   </div>
@@ -1505,29 +1500,50 @@
   }
 
   // ── Form handling ───────────────────────────
-  const form          = document.getElementById('beta-form');
-  const successWidget = document.getElementById('success-widget');
-  const submitBtn     = document.getElementById('submit-btn');
+  const AIRTABLE_WEBHOOK = 'https://hooks.airtable.com/workflows/v1/genericWebhook/appcdhld3pjzNV0qS/wflrBLFCs0j9zm6ER/wtrV5F9644SIgZlX2';
+  const form             = document.getElementById('beta-form');
+  const submitBtn        = document.getElementById('submit-btn');
+  const formError        = document.getElementById('form-error');
+  const submitBtnContent = submitBtn.innerHTML;
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const orig = submitBtn.innerHTML;
+
+    // Los bots suelen completar este campo invisible.
+    if (document.getElementById('f-website').value) {
+      window.location.href = 'gracias.html';
+      return;
+    }
+
+    formError.classList.add('hidden');
     submitBtn.innerHTML = '<span class="ms animate-spin text-[20px]">sync</span> Procesando...';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-      form.classList.add('hidden');
-      successWidget.classList.remove('hidden');
-    }, 1800);
-  });
+    const payload = {
+      nombre: document.getElementById('f-name').value.trim(),
+      correo: document.getElementById('f-email').value.trim().toLowerCase(),
+      giro: document.getElementById('f-type').selectedOptions[0].text,
+      fechaRegistro: new Date().toISOString(),
+      origen: 'landing-beta-github-pages'
+    };
 
-  function resetForm() {
-    form.reset();
-    form.classList.remove('hidden');
-    successWidget.classList.add('hidden');
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = 'Solicitar Acceso Beta Exclusivo <span class="ms text-[20px]">send</span>';
-  }
+    try {
+      // text/plain evita el preflight CORS desde GitHub Pages; el cuerpo sigue siendo JSON.
+      await fetch(AIRTABLE_WEBHOOK, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: JSON.stringify(payload)
+      });
+
+      window.location.href = 'gracias.html';
+    } catch (error) {
+      console.error('No se pudo enviar la solicitud beta:', error);
+      formError.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = submitBtnContent;
+    }
+  });
 
   // ── Smooth scroll ───────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(a => {
