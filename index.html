@@ -1528,12 +1528,14 @@
     };
 
     try {
-      // text/plain evita el preflight CORS desde GitHub Pages; el cuerpo sigue siendo JSON.
+      // no-cors + x-www-form-urlencoded evita preflight y es aceptado por Airtable.
+      const body = new URLSearchParams(payload).toString();
+
       await fetch(AIRTABLE_WEBHOOK, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-        body: JSON.stringify(payload)
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body
       });
 
       window.location.href = 'gracias.html';
