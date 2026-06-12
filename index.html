@@ -629,6 +629,266 @@
 
 
 <!-- ═══════════════════════════════════════════
+     POS / VENTAS Y PEDIDOS — DEEP DIVE
+═══════════════════════════════════════════ -->
+<section id="pos-ventas" class="py-24 bg-white border-b border-border">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
+
+    <!-- Column 1: Info (span-5) -->
+    <div class="lg:col-span-5 space-y-6">
+      <div class="inline-flex items-center gap-2 bg-primary-subtle border border-primary-light text-primary-dark text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full">
+        <span class="ms ms-filled text-[14px]">sell</span>
+        Módulo POS
+      </div>
+      
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-on-surface leading-[1.15]">
+        POS / Ventas y pedidos
+      </h2>
+
+      <div class="space-y-4 text-base text-on-muted leading-relaxed">
+        <p>
+          Registra ventas de forma rápida, agrega productos, cobra, aplica descuentos y guarda pedidos pendientes para retomarlos después.
+        </p>
+        <p>
+          Busca productos por nombre, SKU o código de barras, y trabaja con lectores compatibles para agilizar la venta en mostrador y reducir errores al momento de cobrar.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-border p-4.5 flex items-start gap-3 shadow-sm">
+        <span class="ms ms-filled text-primary text-[20px] mt-0.5">verified</span>
+        <p class="text-sm text-on-surface font-semibold leading-normal">
+          Ideal para comercios que necesitan vender rápido, con más orden y mejor control.
+        </p>
+      </div>
+
+      <div class="space-y-3.5 pt-2">
+        <p class="text-xs font-bold uppercase tracking-widest text-on-muted">Funciones clave</p>
+        <div class="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+          <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
+            <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
+            Crear ventas rápidas
+          </div>
+          <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
+            <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
+            Buscar por nombre, SKU o CB
+          </div>
+          <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
+            <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
+            Compatibilidad con lectores
+          </div>
+          <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
+            <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
+            Múltiples medios de pago
+          </div>
+          <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
+            <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
+            Calcular cambio
+          </div>
+          <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
+            <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
+            Guardar pedidos pendientes
+          </div>
+          <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
+            <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
+            Completar o anular pedidos
+          </div>
+          <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium">
+            <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
+            Historial de ventas
+          </div>
+          <div class="flex items-center gap-2.5 text-sm text-on-surface font-medium sm:col-span-2">
+            <span class="ms ms-filled text-green-600 text-[18px]">check_circle</span>
+            Generar recibos desde la venta
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 2: POS Simulator widget (span-7) -->
+    <div class="lg:col-span-7">
+      <div class="bg-white rounded-2xl border border-border shadow-card overflow-hidden">
+        <!-- POS header -->
+        <div id="pos-widget-header" class="bg-surface-low border-b border-border px-5 py-4 flex justify-between items-center">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-on-surface tracking-wide uppercase">Caja Activa (POS)</span>
+          </div>
+          <div class="text-[10px] text-on-muted font-bold bg-white px-2.5 py-1 rounded-md border border-border">
+            Cliente Invitado
+          </div>
+        </div>
+
+        <!-- Standard POS body -->
+        <div id="pos-main-body" class="grid sm:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-border min-h-[340px]">
+          <!-- Left: Products Catalog (span-3) -->
+          <div class="col-span-3 p-5 space-y-4">
+            <div class="relative">
+              <span class="ms text-[16px] text-on-muted absolute left-3 top-2.5">search</span>
+              <input type="text" placeholder="Buscar por nombre, SKU..." readonly class="w-full pl-9 pr-3 py-1.5 bg-surface-low border border-border rounded-lg text-xs focus:outline-none cursor-default" />
+            </div>
+            
+            <p class="text-[10px] font-bold text-on-muted uppercase tracking-wider">Productos rápidos (Haz clic)</p>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="addPosItem('Refresco de Cola', 18.00)" class="flex flex-col items-start p-3 bg-surface-low hover:bg-primary/5 border border-border hover:border-primary/20 rounded-xl transition-all text-left">
+                <span class="text-xs font-bold text-on-surface">Refresco de Cola</span>
+                <span class="text-[9px] text-on-muted mt-0.5">SKU: REF-001</span>
+                <span class="text-xs font-bold text-primary mt-2">$18.00</span>
+              </button>
+              <button onclick="addPosItem('Pan Dulce Concha', 12.00)" class="flex flex-col items-start p-3 bg-surface-low hover:bg-primary/5 border border-border hover:border-primary/20 rounded-xl transition-all text-left">
+                <span class="text-xs font-bold text-on-surface">Pan Dulce Concha</span>
+                <span class="text-[9px] text-on-muted mt-0.5">SKU: PAN-002</span>
+                <span class="text-xs font-bold text-primary mt-2">$12.00</span>
+              </button>
+              <button onclick="addPosItem('Café Americano M', 25.00)" class="flex flex-col items-start p-3 bg-surface-low hover:bg-primary/5 border border-border hover:border-primary/20 rounded-xl transition-all text-left">
+                <span class="text-xs font-bold text-on-surface">Café Americano M</span>
+                <span class="text-[9px] text-on-muted mt-0.5">SKU: CAF-003</span>
+                <span class="text-xs font-bold text-primary mt-2">$25.00</span>
+              </button>
+              <button onclick="addPosItem('Leche Entera 1L', 22.00)" class="flex flex-col items-start p-3 bg-surface-low hover:bg-primary/5 border border-border hover:border-primary/20 rounded-xl transition-all text-left">
+                <span class="text-xs font-bold text-on-surface">Leche Entera 1L</span>
+                <span class="text-[9px] text-on-muted mt-0.5">SKU: LEC-004</span>
+                <span class="text-xs font-bold text-primary mt-2">$22.00</span>
+              </button>
+            </div>
+
+            <div class="pt-2.5 border-t border-border flex items-center justify-between">
+              <span class="text-[10px] font-semibold text-on-muted flex items-center gap-1.5">
+                <span class="ms text-[14px]">barcode_scanner</span> Lector compatible
+              </span>
+              <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2.5 py-0.5 rounded-full">Activo</span>
+            </div>
+          </div>
+
+          <!-- Right: Cart & Actions (span-2) -->
+          <div class="col-span-2 p-4 flex flex-col bg-surface-low/50">
+            <p class="text-[10px] font-bold text-on-muted uppercase tracking-wider mb-2">Pedido actual</p>
+            
+            <!-- Cart list container -->
+            <div id="pos-cart-list" class="flex-1 space-y-2 overflow-y-auto max-h-[160px] text-xs">
+              <div id="pos-empty-cart" class="text-center py-12 text-on-muted italic text-[11px]">
+                Haz clic en los productos para agregarlos
+              </div>
+            </div>
+
+            <!-- Totals -->
+            <div class="pt-3 border-t border-border mt-3 space-y-1.5 text-xs">
+              <div class="flex justify-between text-on-muted">
+                <span>Subtotal</span>
+                <span id="pos-subtotal">$0.00</span>
+              </div>
+              <div class="flex justify-between font-bold text-on-surface text-sm pt-1 border-t border-border/50">
+                <span>Total</span>
+                <span id="pos-total" class="text-primary">$0.00</span>
+              </div>
+            </div>
+
+            <!-- Checkout / Save actions -->
+            <div class="mt-4 grid grid-cols-2 gap-2">
+              <button onclick="clearPosCart()" class="py-2 text-[11px] font-bold bg-white text-on-muted border border-border rounded-lg hover:bg-surface-low transition-colors">
+                Limpiar
+              </button>
+              <button onclick="openCheckoutModal()" id="pos-btn-checkout" disabled class="py-2 text-[11px] font-bold bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                Cobrar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- POS Checkout Screen (Hidden by default) -->
+        <div id="pos-checkout-screen" class="hidden p-5 flex flex-col justify-between min-h-[340px]">
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <button onclick="backToPosGrid()" class="p-1 rounded-md hover:bg-surface-low text-on-muted hover:text-on-surface">
+                <span class="ms text-[18px]">arrow_back</span>
+              </button>
+              <span class="text-sm font-bold text-on-surface">Cobro del Pedido</span>
+            </div>
+
+            <div class="bg-surface-low rounded-xl p-4 border border-border text-center">
+              <p class="text-xs text-on-muted">Total a cobrar</p>
+              <p class="text-2xl font-extrabold text-on-surface mt-1" id="checkout-total">$0.00</p>
+            </div>
+
+            <!-- Payment Input -->
+            <div class="space-y-2">
+              <label class="text-[10px] font-bold text-on-muted uppercase tracking-wider block">Paga con (Efectivo)</label>
+              <div class="flex gap-2">
+                <button onclick="setPaymentAmount(50)" class="flex-1 py-1.5 bg-surface-low border border-border rounded-lg text-xs font-bold hover:bg-primary-subtle hover:border-primary/30 transition-colors">$50</button>
+                <button onclick="setPaymentAmount(100)" class="flex-1 py-1.5 bg-surface-low border border-border rounded-lg text-xs font-bold hover:bg-primary-subtle hover:border-primary/30 transition-colors">$100</button>
+                <button onclick="setPaymentAmount(200)" class="flex-1 py-1.5 bg-surface-low border border-border rounded-lg text-xs font-bold hover:bg-primary-subtle hover:border-primary/30 transition-colors">$200</button>
+                <button onclick="setPaymentAmount(500)" class="flex-1 py-1.5 bg-surface-low border border-border rounded-lg text-xs font-bold hover:bg-primary-subtle hover:border-primary/30 transition-colors">$500</button>
+              </div>
+              <div class="relative mt-2">
+                <span class="absolute left-3 top-2.5 text-xs text-on-muted font-bold">$</span>
+                <input type="number" id="pos-cash-received" oninput="calculateChange()" placeholder="0.00" class="w-full pl-7 pr-3 py-2 border border-border rounded-lg text-sm font-bold text-on-surface focus:outline-none focus:border-primary" />
+              </div>
+            </div>
+
+            <!-- Change display -->
+            <div class="flex justify-between items-center pt-2">
+              <span class="text-xs font-bold text-on-muted">Cambio:</span>
+              <span id="pos-change-amount" class="text-base font-extrabold text-on-muted">$0.00</span>
+            </div>
+          </div>
+
+          <!-- Finalize -->
+          <div class="pt-4 border-t border-border flex gap-2">
+            <button onclick="backToPosGrid()" class="flex-1 py-2.5 text-xs font-bold bg-white text-on-muted border border-border rounded-lg hover:bg-surface-low transition-colors">Cancelar</button>
+            <button id="btn-complete-sale" onclick="completeSale()" disabled class="flex-1 py-2.5 text-xs font-bold bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Completar Venta</button>
+          </div>
+        </div>
+
+        <!-- POS Success Screen (Hidden by default) -->
+        <div id="pos-success-screen" class="hidden p-5 flex flex-col justify-between min-h-[340px] items-center text-center">
+          <div class="my-auto space-y-4 max-w-xs w-full">
+            <div class="w-12 h-12 bg-green-50 border border-green-200 text-green-600 rounded-full flex items-center justify-center mx-auto animate-bounce">
+              <span class="ms ms-filled text-[24px]">check_circle</span>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-on-surface">¡Venta completada con éxito!</h4>
+              <p class="text-xs text-on-muted mt-1">El stock ha sido actualizado automáticamente.</p>
+            </div>
+
+            <!-- Receipt representation -->
+            <div class="bg-surface-low border border-border border-dashed p-4 rounded-xl text-left space-y-2 font-mono text-[10px] text-on-surface">
+              <div class="text-center border-b border-border border-dashed pb-2">
+                <p class="font-bold">INVENTARIA STORE</p>
+                <p class="text-on-muted">Fecha: 12/06/2026</p>
+              </div>
+              <div id="receipt-items-list" class="space-y-1">
+                <!-- Items dynamically loaded -->
+              </div>
+              <div class="border-t border-border border-dashed pt-2 space-y-1">
+                <div class="flex justify-between font-bold text-xs pt-1 border-t border-border/30">
+                  <span>TOTAL</span>
+                  <span id="receipt-total">$0.00</span>
+                </div>
+                <div class="flex justify-between text-on-muted">
+                  <span>Recibido</span>
+                  <span id="receipt-cash">$0.00</span>
+                </div>
+                <div class="flex justify-between text-green-700 font-bold">
+                  <span>Cambio</span>
+                  <span id="receipt-change">$0.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="resetPos()" class="w-full py-2.5 text-xs font-bold bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
+            Nueva Venta
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════
      COPILOTO IA — DEEP DIVE
 ═══════════════════════════════════════════ -->
 <section class="py-24 bg-dark overflow-hidden relative">
@@ -1372,6 +1632,154 @@
     successWidget.classList.add('hidden');
     submitBtn.disabled = false;
     submitBtn.innerHTML = 'Solicitar Acceso Beta Exclusivo <span class="ms text-[20px]">send</span>';
+  }
+
+  // ── POS Simulator ───────────────────────────
+  let posCart = [];
+
+  function addPosItem(name, price) {
+    const existing = posCart.find(item => item.name === name);
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      posCart.push({ name, price, qty: 1 });
+    }
+    updatePosCartUI();
+  }
+
+  function clearPosCart() {
+    posCart = [];
+    updatePosCartUI();
+  }
+
+  function updatePosCartUI() {
+    const cartList = document.getElementById('pos-cart-list');
+    const emptyMsg = document.getElementById('pos-empty-cart');
+    const btnCheckout = document.getElementById('pos-btn-checkout');
+    const subtotalEl = document.getElementById('pos-subtotal');
+    const totalEl = document.getElementById('pos-total');
+
+    if (posCart.length === 0) {
+      emptyMsg.classList.remove('hidden');
+      btnCheckout.disabled = true;
+      subtotalEl.innerText = '$0.00';
+      totalEl.innerText = '$0.00';
+      Array.from(cartList.children).forEach(child => {
+        if (child.id !== 'pos-empty-cart') {
+          child.remove();
+        }
+      });
+      return;
+    }
+
+    emptyMsg.classList.add('hidden');
+    btnCheckout.disabled = false;
+
+    Array.from(cartList.children).forEach(child => {
+      if (child.id !== 'pos-empty-cart') {
+        child.remove();
+      }
+    });
+
+    let total = 0;
+    posCart.forEach(item => {
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'flex justify-between items-center py-1 border-b border-border/40';
+      itemDiv.innerHTML = `
+        <div class="flex-1 min-w-0 pr-2">
+          <p class="font-bold text-on-surface truncate">${item.name}</p>
+          <p class="text-[10px] text-on-muted">${item.qty}x $${item.price.toFixed(2)}</p>
+        </div>
+        <span class="font-semibold text-on-surface">$${itemTotal.toFixed(2)}</span>
+      `;
+      cartList.appendChild(itemDiv);
+    });
+
+    subtotalEl.innerText = `$${total.toFixed(2)}`;
+    totalEl.innerText = `$${total.toFixed(2)}`;
+  }
+
+  function openCheckoutModal() {
+    let total = 0;
+    posCart.forEach(item => total += item.price * item.qty);
+
+    document.getElementById('pos-widget-header').classList.add('hidden');
+    document.getElementById('pos-main-body').classList.add('hidden');
+    document.getElementById('pos-checkout-screen').classList.remove('hidden');
+
+    document.getElementById('checkout-total').innerText = `$${total.toFixed(2)}`;
+    document.getElementById('pos-cash-received').value = '';
+    document.getElementById('pos-change-amount').innerText = '$0.00';
+    document.getElementById('pos-change-amount').className = 'text-base font-extrabold text-on-muted';
+    document.getElementById('btn-complete-sale').disabled = true;
+  }
+
+  function backToPosGrid() {
+    document.getElementById('pos-checkout-screen').classList.add('hidden');
+    document.getElementById('pos-widget-header').classList.remove('hidden');
+    document.getElementById('pos-main-body').classList.remove('hidden');
+  }
+
+  function setPaymentAmount(amount) {
+    document.getElementById('pos-cash-received').value = amount;
+    calculateChange();
+  }
+
+  function calculateChange() {
+    let total = 0;
+    posCart.forEach(item => total += item.price * item.qty);
+    const cash = parseFloat(document.getElementById('pos-cash-received').value) || 0;
+    const change = cash - total;
+    const changeEl = document.getElementById('pos-change-amount');
+    const completeBtn = document.getElementById('btn-complete-sale');
+
+    if (change >= 0) {
+      changeEl.innerText = `$${change.toFixed(2)}`;
+      changeEl.className = 'text-base font-extrabold text-green-700';
+      completeBtn.disabled = false;
+    } else {
+      changeEl.innerText = 'Falta dinero';
+      changeEl.className = 'text-sm font-bold text-red-600';
+      completeBtn.disabled = true;
+    }
+  }
+
+  function completeSale() {
+    let total = 0;
+    posCart.forEach(item => total += item.price * item.qty);
+    const cash = parseFloat(document.getElementById('pos-cash-received').value) || 0;
+    const change = cash - total;
+
+    const receiptList = document.getElementById('receipt-items-list');
+    receiptList.innerHTML = '';
+    
+    posCart.forEach(item => {
+      const itemTotal = item.price * item.qty;
+      const li = document.createElement('div');
+      li.className = 'flex justify-between';
+      li.innerHTML = `
+        <span>${item.qty}x ${item.name}</span>
+        <span>$${itemTotal.toFixed(2)}</span>
+      `;
+      receiptList.appendChild(li);
+    });
+
+    document.getElementById('receipt-total').innerText = `$${total.toFixed(2)}`;
+    document.getElementById('receipt-cash').innerText = `$${cash.toFixed(2)}`;
+    document.getElementById('receipt-change').innerText = `$${change.toFixed(2)}`;
+
+    document.getElementById('pos-checkout-screen').classList.add('hidden');
+    document.getElementById('pos-success-screen').classList.remove('hidden');
+  }
+
+  function resetPos() {
+    document.getElementById('pos-success-screen').classList.add('hidden');
+    document.getElementById('pos-widget-header').classList.remove('hidden');
+    document.getElementById('pos-main-body').classList.remove('hidden');
+    clearPosCart();
   }
 
   // ── Smooth scroll ───────────────────────────
