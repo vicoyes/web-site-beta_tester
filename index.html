@@ -519,11 +519,57 @@
         </div>
         <h3 class="text-lg font-bold text-on-surface mb-2">Lector de código de barras</h3>
         <p class="text-sm text-on-muted leading-relaxed flex-1 font-normal">
-          Vende más rápido con lector de código de barras. Inventaria te permite trabajar con lectores de código de barras para buscar productos, agilizar el proceso de venta y reducir errores en caja.
+          Vende más rápido sin comprar equipo adicional: usa la cámara de tu celular como lector de código de barras, o conecta un lector físico para buscar productos y reducir errores en caja.
         </p>
-        <div class="mt-5 pt-4 border-t border-border flex justify-between text-[11px] font-medium text-on-muted">
-          <span>Compatibilidad</span>
-          <span class="text-primary font-semibold">USB / Bluetooth</span>
+        <div class="mt-5 pt-4 border-t border-border flex flex-wrap gap-1.5">
+          <span class="text-[11px] font-semibold bg-primary text-white px-2.5 py-1 rounded-md">Cámara del celular</span>
+          <span class="text-[11px] font-semibold bg-surface-low text-on-surface px-2.5 py-1 rounded-md border border-border">USB / Bluetooth</span>
+        </div>
+      </div>
+
+      <!-- Resiliente a fallas de conexión -->
+      <div class="group bg-white rounded-2xl border border-border p-7 hover:border-primary/30 hover:shadow-card-hover transition-all duration-300 flex flex-col">
+        <div class="w-12 h-12 bg-primary-subtle rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
+          <span class="ms ms-filled text-primary group-hover:text-white text-[22px] transition-colors duration-300">cloud_sync</span>
+        </div>
+        <h3 class="text-lg font-bold text-on-surface mb-2">Resiliente a fallas de conexión</h3>
+        <p class="text-sm text-on-muted leading-relaxed flex-1 font-normal">
+          Si la señal se corta a media venta, Inventaria guarda tus cambios y sincroniza automáticamente en cuanto vuelve la conexión, para que no pierdas una venta por un mal momento de internet.
+        </p>
+        <div class="mt-5 pt-4 border-t border-border flex flex-wrap gap-1.5">
+          <span class="text-[10px] font-semibold bg-surface-low text-on-surface px-2.5 py-0.5 rounded border border-border">Guardado automático</span>
+          <span class="text-[10px] font-semibold bg-surface-low text-on-surface px-2.5 py-0.5 rounded border border-border">Sincronización</span>
+        </div>
+      </div>
+
+      <!-- Roles de usuario -->
+      <div class="group bg-white rounded-2xl border border-border p-7 hover:border-primary/30 hover:shadow-card-hover transition-all duration-300 flex flex-col">
+        <div class="w-12 h-12 bg-primary-subtle rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
+          <span class="ms ms-filled text-primary group-hover:text-white text-[22px] transition-colors duration-300">admin_panel_settings</span>
+        </div>
+        <h3 class="text-lg font-bold text-on-surface mb-2">Roles de usuario</h3>
+        <p class="text-sm text-on-muted leading-relaxed flex-1 font-normal">
+          Cada persona de tu equipo ve solo lo que necesita para trabajar. Vendedor, Gerente y Administrador tienen accesos distintos a costos, márgenes, reportes y configuración del negocio.
+        </p>
+        <div class="mt-5 pt-4 border-t border-border flex flex-wrap gap-1.5">
+          <span class="text-[10px] font-semibold bg-surface-low text-on-surface px-2.5 py-0.5 rounded border border-border">Vendedor</span>
+          <span class="text-[10px] font-semibold bg-surface-low text-on-surface px-2.5 py-0.5 rounded border border-border">Gerente</span>
+          <span class="text-[10px] font-semibold bg-surface-low text-on-surface px-2.5 py-0.5 rounded border border-border">Admin</span>
+        </div>
+      </div>
+
+      <!-- Usuarios y accesos -->
+      <div class="group bg-white rounded-2xl border border-border p-7 hover:border-primary/30 hover:shadow-card-hover transition-all duration-300 flex flex-col">
+        <div class="w-12 h-12 bg-primary-subtle rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
+          <span class="ms ms-filled text-primary group-hover:text-white text-[22px] transition-colors duration-300">manage_accounts</span>
+        </div>
+        <h3 class="text-lg font-bold text-on-surface mb-2">Usuarios y accesos</h3>
+        <p class="text-sm text-on-muted leading-relaxed flex-1 font-normal">
+          Crea cuentas para tu equipo con rol Gerente, Vendedor o Bodeguero sin depender de soporte técnico. Bloquea, archiva y restaura accesos cuando lo necesites.
+        </p>
+        <div class="mt-5 pt-4 border-t border-border flex flex-wrap gap-1.5">
+          <span class="text-[10px] font-semibold bg-surface-low text-on-surface px-2.5 py-0.5 rounded border border-border">Roles fijos</span>
+          <span class="text-[10px] font-semibold bg-surface-low text-on-surface px-2.5 py-0.5 rounded border border-border">Sin soporte técnico</span>
         </div>
       </div>
 
@@ -1041,6 +1087,13 @@
               <span class="lg:hidden">Config.</span>
             </button>
 
+            <button onclick="switchCat('usuarios')" id="tab-usuarios"
+              class="tab-btn w-auto lg:w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-left transition-all">
+              <span class="ms ms-filled text-[18px] flex-shrink-0">manage_accounts</span>
+              <span class="hidden lg:inline">Usuarios y accesos</span>
+              <span class="lg:hidden">Usuarios</span>
+            </button>
+
           </nav>
         </aside>
 
@@ -1284,6 +1337,28 @@
             </div>
           </div>
 
+          <!-- Usuarios y accesos -->
+          <div id="cat-usuarios" class="cat-panel hidden space-y-5">
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-10 h-10 bg-primary-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="ms ms-filled text-primary text-[20px]">manage_accounts</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-on-surface">Usuarios y accesos</h3>
+                <p class="text-sm text-on-muted">El administrador da de alta a su equipo y controla sus accesos sin depender de soporte técnico.</p>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Crear empleados con rol Gerente, Vendedor o Bodeguero</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Editar nombre, apellido, teléfono y rol</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Ver o cambiar la contraseña de un empleado</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Bloquear de forma indefinida o hasta una fecha</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Archivar sin perder el historial de ventas</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Restaurar el acceso cuando lo necesites</div>
+              <div class="flex gap-2 items-start text-sm text-on-surface sm:col-span-2"><span class="ms ms-filled text-green-600 text-[16px] mt-0.5 flex-shrink-0">check_circle</span>Cada empleado inicia sesión con su propio correo y contraseña</div>
+            </div>
+          </div>
+
         </main>
       </div>
     </div>
@@ -1354,6 +1429,16 @@
         </summary>
         <p class="px-6 pb-5 text-sm text-on-muted leading-relaxed border-t border-border pt-4">
           El Copiloto escanea tus patrones de venta e inventario para responderte en lenguaje simple: qué productos tienen baja rotación, cuáles generan mayor margen y cuándo conviene comprar más stock.
+        </p>
+      </details>
+
+      <details class="group bg-white border border-border rounded-xl overflow-hidden open:ring-1 open:ring-primary/40 transition-all">
+        <summary class="flex justify-between items-center px-6 py-4 cursor-pointer list-none font-semibold text-on-surface text-base select-none">
+          ¿Puedo crear cuentas para mis empleados?
+          <span class="ms text-[20px] text-on-muted transition-transform duration-200 group-open:rotate-180">expand_more</span>
+        </summary>
+        <p class="px-6 pb-5 text-sm text-on-muted leading-relaxed border-t border-border pt-4">
+          Sí. Desde "Usuarios y accesos" creas una cuenta por empleado con rol Gerente, Vendedor o Bodeguero. Puedes editarlos, bloquearlos de forma indefinida o hasta una fecha específica, y archivarlos sin perder su historial de ventas.
         </p>
       </details>
 
@@ -1488,7 +1573,7 @@
   }
 
   // ── Feature tabs ────────────────────────────
-  const ALL_CATS = ['ventas','productos','variaciones','inventario','clientes','proveedores','tickets','reportes','dashboard','copiloto','config'];
+  const ALL_CATS = ['ventas','productos','variaciones','inventario','clientes','proveedores','tickets','reportes','dashboard','copiloto','config','usuarios'];
 
   function switchCat(cat) {
     ALL_CATS.forEach(c => {
